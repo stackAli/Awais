@@ -10,6 +10,36 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+/* Make spline always full background on smaller screens */
+@media (max-width: 992px) {
+  .image-container img{
+    transform: scale(0.8) translateX(-13%);
+     
+    
+    
+  }
+  .hero-section {
+    position: relative;
+  }
+
+  .hero-spline {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    margin-left: 0 !important;
+    z-index: 0; /* Ensure spline is behind the text */
+  }
+
+  .hero-text {
+    padding-top: 50px;
+    height: 80vh;
+    position: relative;
+    z-index: 2; /* Text stays above spline */
+  }
+}
+
   body { 
     margin: 0; 
     font-family: 'Montserrat'; 
