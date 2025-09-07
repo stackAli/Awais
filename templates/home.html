@@ -1,0 +1,936 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Load Spline Web Component -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.56/build/spline-viewer.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body { 
+    margin: 0; 
+    font-family: 'Montserrat'; 
+    color: white; 
+    overflow-x: hidden; 
+    background: #000;
+  }
+
+  .hero-section {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding: 0 5%;
+    gap: 2rem;
+  }
+
+  .hero-text {
+    margin-top: -100px;
+    flex: none;
+    max-width: 50%;
+    font-size: 48px;
+    font-weight: bold;
+    color: #1B365D;
+  }
+
+  .hero-text p {
+    padding-top: 10px;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: darkgrey;
+  }
+
+  /* Buttons row */
+  .hero-buttons {
+    margin-top: 50px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .hero-buttons button {
+    font-size: 18px;        
+    padding: 10px 20px;      
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;     
+    transition: all 0.3s ease;
+  }
+
+  /* Pulse animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+    }
+  }
+
+  .btn-primary {
+    background: #FF6B35;
+    color: white;
+    animation: pulse 2s infinite; /* added animation */
+  }
+
+  .btn-primary:hover {
+    background: white;
+    color: #FF6B35;
+  }
+
+  .btn-secondary2 {
+    background: white;
+    color: black;
+    border: 1.5px solid #1B365D;
+  }
+
+  .btn-secondary2:hover {
+    background: white;
+    color: #1B365D;
+  }
+
+  .hero-spline {
+    width: 50%;
+    height: 100%;
+    margin-left: auto;
+    overflow: hidden;
+  }
+
+  .hero-spline spline-viewer {
+    width: 200%;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 992px) {
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    .hero-text {
+      max-width: 100%;
+      margin-top: 0;
+    }
+    .hero-buttons {
+      justify-content: center;
+    }
+    .hero-buttons button {
+      font-size: 12px;     /* even smaller on mobile */
+      padding: 5px 12px;
+    }
+  }
+
+  /* Section 2 Styles */
+  .problem-section {
+    background: #F8F9FA;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .problem-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 36px;
+    color: #1B365D;
+    margin-bottom: 3rem;
+  }
+
+  .problem-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .problem-item {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .problem-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+
+  .problem-item .icon {
+    font-size: 50px;
+    margin-bottom: 1rem;
+    color: #1B365D;
+    animation: bounce 2s infinite;
+  }
+
+  .problem-item h3 {
+    font-size: 20px;
+    color: #1B365D;
+    margin-bottom: 1rem;
+  }
+
+  .problem-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 16px;
+    color: #555;
+  }
+
+  .problem-item ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Infographic placeholder */
+  .infographic {
+    margin-top: 4rem;
+    padding: 2rem;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    background: #fff;
+    color: #888;
+    font-style: italic;
+  }
+
+  /* Bounce animation for icons */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 992px) {
+    .problem-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .vapi-demo-section {
+    background: linear-gradient(135deg, #1B365D, #2E5984);
+    padding: 6rem 2rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vapi-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vapi-title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 3rem;
+}
+
+.vapi-demo-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.vapi-button {
+    background-color: #FF6B35;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vapi-button:hover {
+    background-color: #e55b2d;
+}
+
+.vapi-widget {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.vapi-transcript {
+    background: rgba(255,255,255,0.15);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.vapi-counter {
+    font-size: 18px;
+    margin-top: 1rem;
+}
+
+.vapi-features-left {
+    counter-reset: feature-counter; /* Initialize counter */
+    list-style: none;
+    padding: 0;
+    margin-left: 3rem; /* Space from left */
+    max-width: 600px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.vapi-features-left li {
+    position: relative;
+    padding-left: 2.5rem; /* Space for number */
+    margin-bottom: 1rem;
+}
+
+.vapi-features-left li::before {
+    counter-increment: feature-counter;
+    content: counter(feature-counter) ".";
+    position: absolute;
+    left: 0;
+    color: #FF6B35; /* Orange numbers */
+    font-weight: 700;
+    font-size: 18px;
+}
+  
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-text">
+    <h1>Stop Losing Revenue to After-Hours Calls</h1>
+    <p>Your AI Growth System Captures Every Lead, Books Every
+        Appointment, and Scales Your Success 24/7
+    </p>
+
+    <!-- Buttons directly under p -->
+    <div class="hero-buttons">
+      <button class="btn-primary">See Your AI in Action</button>
+      <button class="btn-secondary2">Download Free Growth Audit</button>
+    </div>
+  </div>
+
+  <div class="hero-spline">
+    <spline-viewer url="https://prod.spline.design/kPKF6oBSZuDaYsXd/scene.splinecode"></spline-viewer>
+  </div>
+</div>
+
+
+<!-- SECTION 2: Problem Amplification -->
+<section class="problem-section">
+  <div class="problem-container">
+    <h2 class="problem-title">The Growth Crisis Every Business Faces</h2>
+
+    <!-- 3-Column Pain Point Grid -->
+    <div class="problem-grid">
+      
+      <!-- Column 1 -->
+      <div class="problem-item">
+        <div class="icon">
+          <i class="fas fa-hand-holding-dollar"></i>
+        </div>
+        <h3>Revenue Leakage</h3>
+        <ul>
+          <li>40% of leads call outside business hours</li>
+          <li>Every missed call = $500+ lost revenue</li>
+          <li>Weekend inquiries go to competitors</li>
+        </ul>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="problem-item">
+        <div class="icon">
+          <i class="fas fa-user-clock"></i>
+        </div>
+        <h3>Operational Chaos</h3>
+        <ul>
+          <li>Staff overwhelmed with repetitive tasks</li>
+          <li>Inconsistent customer experiences</li>
+          <li>Manual processes limiting growth</li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="problem-item">
+        <div class="icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Scaling Barriers</h3>
+        <ul>
+          <li>Can't hire fast enough to meet demand</li>
+          <li>Quality drops as volume increases</li>
+          <li>Growth plateau despite market opportunity</li>
+        </ul>
+      </div>
+    </div>
+
+   
+  </div>
+</section>
+
+
+<!-- SECTION 3: Centered Image -->
+<section class="image-section">
+  <h2 style="font: 'Montserrat'; font-size: 36px; color: #1B365D;">Your Complete AI Powered Growth System</h2>
+  <div class="image-container">
+    <img src="{{ url_for('static', filename='Yellow Modern Process Graph.png') }}" alt="Section Illustration">
+  </div>
+</section>
+
+<style>
+  .image-section {
+    background: #fff;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .image-container img {
+    max-width: auto;
+    height: 70vh;
+    display: block;
+  }
+</style>
+
+</section>
+
+<!-- SECTION 4: Interactive VAPI Demo -->
+<section class="vapi-demo-section">
+  <div class="vapi-container">
+    <!-- Section Title -->
+    <h2 class="vapi-title">Experience Your Future AI Receptionist</h2>
+
+    <!-- Demo Interface -->
+    <div class="vapi-demo-interface">
+      
+      <!-- Prominent Talk Button -->
+      <button class="vapi-button">TALK TO OUR AI NOW</button>
+
+      <!-- Embedded Widget Placeholder -->
+      <div class="vapi-widget">
+        <p>[Live AI Conversation Widget Placeholder]</p>
+      </div>
+
+      <!-- Transcript Display -->
+      <div class="vapi-transcript">
+        <p><strong>Transcript:</strong> <span id="vapi-transcript-text">Waiting for conversation...</span></p>
+      </div>
+
+      <!-- Counter -->
+      <div class="vapi-counter">
+        <p><strong>This AI booked <span id="appointments-counter">127</span> appointments this week</strong></p>
+      </div>
+
+      <!-- Demo Features -->
+      
+
+    </div>
+    
+  </div>
+  <ol class="vapi-features">
+        <li>Natural conversation flow</li>
+        <li>Appointment scheduling capability</li>
+        <li>Lead qualification questions</li>
+        <li>Calendar integration demonstration</li>
+        <li>Personalization examples</li>
+        <li>Best closer you will ever hire</li>
+      </ol>
+</section>
+
+
+<!-- SECTION 5: Social Proof Explosion -->
+<section class="social-proof-section">
+  <div class="social-proof-container">
+    <h2 class="social-proof-title">Client Success Stories</h2>
+
+    <div class="social-proof-grid">
+
+      <!-- Card 1: Healthcare Clinic -->
+      <div class="client-card">
+        <img src="{{ url_for('static', filename='images/clinic-logo.png') }}" alt="Healthcare Clinic Logo">
+        <p class="client-result">300% appointment increase in 60 days</p>
+        <p class="client-name">Dr. Sarah Mitchell, Melbourne Family Clinic</p>
+      </div>
+
+      <!-- Card 2: Law Firm -->
+      <div class="client-card">
+        <img src="{{ url_for('static', filename='images/law-logo.png') }}" alt="Law Firm Logo">
+        <p class="client-result">$150K additional revenue in first quarter</p>
+        <p class="client-name">James Richardson, Richardson Legal</p>
+      </div>
+
+      <!-- Card 3: Home Services -->
+      <div class="client-card">
+        <img src="{{ url_for('static', filename='images/home-logo.png') }}" alt="Home Services Logo">
+        <p class="client-result">From 50 to 200 bookings monthly</p>
+        <p class="client-name">Mike Thompson, Elite Plumbing</p>
+      </div>
+
+      <!-- Card 4: Real Estate Agency -->
+      <div class="client-card">
+        <img src="{{ url_for('static', filename='images/realestate-logo.png') }}" alt="Real Estate Logo">
+        <p class="client-result">Never miss a property inquiry again</p>
+        <p class="client-name">Lisa Chen, Prestige Properties</p>
+      </div>
+
+      <!-- Card 5: Dental Practice -->
+      <div class="client-card">
+        <img src="{{ url_for('static', filename='images/dental-logo.png') }}" alt="Dental Practice Logo">
+        <p class="client-result">Eliminated double bookings completely</p>
+        <p class="client-name">Dr. Michael Roberts, Roberts Dental</p>
+      </div>
+
+      <!-- Card 6: Consulting Firm -->
+      <div class="client-card">
+        <img src="{{ url_for('static', filename='images/consulting-logo.png') }}" alt="Consulting Firm Logo">
+        <p class="client-result">Freed up 20 hours weekly for billable work</p>
+        <p class="client-name">Amanda Wilson, Wilson Strategy</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+.social-proof-section {
+    background: #F8F9FA;
+    padding: 6rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.social-proof-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-proof-title {
+    font-weight: 600;
+    font-size: 36px;
+    color: #1B365D;
+    margin-bottom: 3rem;
+}
+
+.social-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Client Card Styling */
+.client-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.client-card img {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.client-result {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1B365D;
+    margin-bottom: 0.5rem;
+}
+
+.client-name {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .social-proof-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .social-proof-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<!-- SECTION 6: Transformation Journey -->
+<section class="transformation-section">
+  <div class="transformation-container">
+    <h2 class="transformation-title">Your 90 Day Business Transformation Timeline</h2>
+
+    <div class="timeline">
+
+      <!-- Phase 1 -->
+      <div class="timeline-phase">
+        <div class="timeline-marker">1</div>
+        <div class="timeline-content">
+          <h3>Week 1-2: AI Receptionist Deployment</h3>
+          <p><strong>Key Deliverables:</strong> Set up AI receptionist, initial training</p>
+          <p><strong>Expected Outcomes:</strong> Automated call handling & lead capture</p>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="timeline-phase">
+        <div class="timeline-marker">2</div>
+        <div class="timeline-content">
+          <h3>Week 3-6: Outreach System Integration</h3>
+          <p><strong>Key Deliverables:</strong> Integrate AI with outreach channels</p>
+          <p><strong>Expected Outcomes:</strong> Streamlined lead engagement & follow-ups</p>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="timeline-phase">
+        <div class="timeline-marker">3</div>
+        <div class="timeline-content">
+          <h3>Week 7-10: Analytics Intelligence Implementation</h3>
+          <p><strong>Key Deliverables:</strong> Install analytics dashboards, reporting setup</p>
+          <p><strong>Expected Outcomes:</strong> Data-driven insights & performance tracking</p>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="timeline-phase">
+        <div class="timeline-marker">4</div>
+        <div class="timeline-content">
+          <h3>Week 11-12: Advanced System Optimization</h3>
+          <p><strong>Key Deliverables:</strong> Refine AI behavior & workflow optimization</p>
+          <p><strong>Expected Outcomes:</strong> Max efficiency, higher appointment conversions</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+.transformation-section {
+    background: #fff;
+    padding: 6rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #1B365D;
+}
+
+.transformation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.transformation-title {
+    font-weight: 600;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Timeline container */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Timeline connector line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 2%;
+    width: 96%;
+    height: 4px;
+    background: #ddd;
+    z-index: 0;
+}
+
+/* Timeline phase */
+.timeline-phase {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    flex: 1 1 22%; /* 4 phases fit in a row */
+    position: relative;
+    text-align: left;
+    z-index: 1;
+    min-width: 220px;
+}
+
+/* Timeline marker */
+.timeline-marker {
+    width: 40px;
+    height: 40px;
+    background: #FF6B35;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Timeline content */
+.timeline-content h3 {
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    font-size: 14px;
+    margin: 0.3rem 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .timeline {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .timeline-phase {
+        width: 100%;
+        flex: none;
+    }
+    .timeline-marker {
+        left: 0;
+        transform: none;
+    }
+    .timeline::before {
+        top: 0;
+        left: 20px;
+        width: 4px;
+        height: 100%;
+    }
+}
+</style>
+<!-- SECTION 7: Risk Reversal -->
+<section class="risk-reversal-section">
+  <div class="risk-container">
+    <!-- Section Title -->
+    <h2 class="risk-title">Your Success is Guaranteed</h2>
+
+    <!-- Guarantee Badges -->
+    <div class="guarantee-badges">
+      <div class="guarantee-badge">300% ROI within 90 days or full refund</div>
+      <div class="guarantee-badge">Free setup and migration included</div>
+      <div class="guarantee-badge">No long-term contracts required</div>
+      <div class="guarantee-badge">24/7 support and optimization</div>
+    </div>
+  </div>
+</section>
+<style>
+.risk-reversal-section {
+    background: #28A745; /* Success Green */
+    padding: 6rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.risk-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.risk-title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 3rem;
+}
+
+/* Guarantee badges */
+.guarantee-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.guarantee-badge {
+    background: rgba(255,255,255,0.15);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guarantee-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .guarantee-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+    .guarantee-badge {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+<!-- SECTION 8: Final Conversion Push -->
+<section class="final-conversion-section">
+  <div class="conversion-container">
+    <!-- Section Title -->
+    <h2 class="conversion-title">Ready to Transform Your Business?</h2>
+
+    <!-- Urgency Element with dynamic spots -->
+    <p class="conversion-urgency">
+      Only <span id="spots-counter">8</span> Implementation Spots Available This Month
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="conversion-buttons">
+      <a href="/get-started" class="btn-primary">START MY TRANSFORMATION</a>
+      <a href="/booking" class="btn-secondary">Book Strategy Call</a>
+    </div>
+
+    <!-- Calendar Integration Placeholder -->
+    <div class="calendar-integration">
+      <p>[Real-time availability calendar widget goes here]</p>
+    </div>
+  </div>
+</section>
+<style>
+.final-conversion-section {
+    background: #1B365D; /* Blue background */
+    padding: 6rem 2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.conversion-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.conversion-title {
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 2rem;
+}
+
+.conversion-urgency {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+#spots-counter {
+    color: #FF6B35; /* Orange number */
+    font-weight: bold;
+}
+
+/* CTA Buttons */
+.conversion-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.btn-primary {
+    background-color: #FF6B35;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e55b2d;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid #FF6B35;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 35px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #FF6B35;
+    color: white;
+}
+
+/* Calendar Placeholder */
+.calendar-integration {
+    margin-top: 2rem;
+    background: rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .conversion-buttons {
+        flex-direction: column;
+    }
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+
+
+
+{% endblock %}
