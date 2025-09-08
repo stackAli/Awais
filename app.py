@@ -10,25 +10,20 @@ app = Flask(__name__)
 def home():
     return render_template("home.html", page="Home")
 
-@app.route("/about")
+@app.route("/GrowthSystems")
 def about():
-    return render_template("about.html", page="About Us")
+    return render_template("growth.html", page="Growth")
 
-@app.route("/admin")
-def admin():
-    return render_template("admin.html", page="Admin")
+@app.route("/successstories")
+def successstories():
+    return render_template("successstories.html", page="successstories")
+@app.route("/contactus")
+def contactus():
+    return render_template("contactus.html", page="contactus")
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html", page="Contact Us")
 
-@app.route("/services")
-def services():
-    return render_template("services.html", page="Services")
 
-@app.route("/casestudies")
-def case_studies():
-    return render_template("casestudies.html", page="Case Studies")
+
 
 # -------------------------
 # Example API
