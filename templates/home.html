@@ -9,15 +9,130 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
   <!-- tsparticles CDN -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-  
 </head>
 <body>
+
+  <style>/* =========================
+   HOLOGRAPHIC BUTTON STYLE (GLOBAL)
+========================= */
+
+/* About Us Dropdown */
+#aboutDropdown::after { 
+  display: none !important; 
+}
+
+#aboutDropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -21px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+}
+
+#aboutDropdown:hover::before { 
+  transform: scaleX(1.2); 
+}
+
+.dropdown-menu { 
+  background-color: white; 
+  border-radius: 5px; 
+  padding: 0.5rem 0; 
+}
+
+
+.dropdown-item { 
+  font-weight: 500; 
+  padding: 0.5rem 1.5rem; 
+}
+
+.dropdown-item:hover { 
+  background-color: #f2f2f2; 
+}
+
+button,
+a.btn,
+a.btn-demo,
+a.btn-services,
+.nav-button,
+.btn-learn,
+.slide-buttons button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+ 
+  background: #050606;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  z-index: 1;
+  
+}
+
+button::before,
+a.btn::before,
+a.btn-demo::before,
+a.btn-services::before,
+.nav-button::before,
+.btn-learn::before,
+.slide-buttons button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(255, 215, 0, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+button:hover,
+a.btn:hover,
+a.btn-demo:hover,
+a.btn-services:hover,
+.nav-button:hover,
+.btn-learn:hover,
+.slide-buttons button:hover {
+  transform: scale(1.05);
+  
+  color: #fff;
+}
+
+button:hover::before,
+a.btn:hover::before,
+a.btn-demo:hover::before,
+a.btn-services:hover::before,
+.nav-button:hover::before,
+.btn-learn:hover::before,
+.slide-buttons button:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+</style>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom" id="navbar">
@@ -82,8 +197,6 @@
       <div class="guarantee-badge">Free setup</div>
       <div class="guarantee-badge">No long-term contract</div>
       <div class="guarantee-badge">24/7 Support & Optimization</div>
-      
-      <!-- Duplicate badges for seamless loop -->
       <div class="guarantee-badge">300% ROI or refund</div>
       <div class="guarantee-badge">Free setup</div>
       <div class="guarantee-badge">No long-term contract</div>
@@ -91,92 +204,297 @@
     </div>
   </div>
 </section>
-<!-- Section 3: Growth Crisis Overlay -->
+
+<!-- Growth Crisis Overlay -->
+<!-- Include Spline Viewer Script once -->
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
+
+
+
+
 <section class="growth-crisis-overlay" id="growthOverlay">
-  <h2>THE GROWTH CRISIS EVERY BUSINESS FACES</h2>
+  <h2>The Growth Crisis Every Business Faces</h2>
 
   <div class="slide-container">
-    <!-- Slide 1 -->
-    <div class="slide active">
-      <div class="slide-animation">
-        <img src="glove-dollar.png" alt="Glove with Dollar" class="glove-animation">
-      </div>
-      <div class="slide-content">
-        <h3>Revenue Leakage</h3>
-        <ul>
-          <li>40% of customers call outside business hours</li>
-          <li>Every missed call = $500+ lost revenue</li>
-          <li>Weekend inquiries go to competitors</li>
-        </ul>
-      </div>
-    </div>
+    <div class="slide-wrapper">
 
-    <!-- Slide 2 -->
-    <div class="slide">
-      <div class="slide-animation">
-        <img src="clock-hover.gif" alt="Clock Animation" class="clock-animation">
+      <!-- Slide 1: Revenue Leakage -->
+      <div class="slide slide1">
+        <div class="slide-animation">
+          <dotlottie-wc src="https://lottie.host/14bf6e37-6f30-411e-8d16-be07a3414899/KzHOFKqxLI.lottie" autoplay loop></dotlottie-wc>
+        </div>
+        <div class="slide-content">
+          <h3>REVENUE LEAKAGE</h3>
+          <ul>
+            <li>40% of Customers Call Outside Business Hours</li>
+            <li>Every Missed Call = <strong style="color:#FFD700;">LOST REVENUE</strong></li>
+            <li>Weekend Inquiries Go To Competitors</li>
+          </ul>
+          <div class="slide-buttons">
+            <button class="prevSlide">&larr; Previous</button>
+            <button class="nextSlide">Next &rarr;</button>
+          </div>
+        </div>
       </div>
-      <div class="slide-content">
-        <h3>Operational Chaos</h3>
-        <ul>
-          <li>Staff overwhelmed with repetitive tasks</li>
-          <li>Inconsistent customer experiences</li>
-          <li>Manual processes limiting growth</li>
-        </ul>
-      </div>
-    </div>
 
-    <!-- Slide 3 -->
-    <div class="slide">
-      <div class="slide-animation">
-        <img src="rotating-graph.gif" alt="Rotating Graph" class="graph-animation">
+      <!-- Slide 2: Operational Chaos -->
+      <div class="slide slide2">
+        <div class="slide-animation">
+          <dotlottie-wc src="https://lottie.host/bd391938-518b-45ad-a74a-3774ca144284/3TKKB1CFu2.lottie" autoplay loop></dotlottie-wc>
+        </div>
+        <div class="slide-content">
+          <h3>OPERATIONAL CHAOS</h3>
+          <ul>
+            <li>Staff overwhelmed with repetitive tasks</li>
+            <li>Inconsistent Customer Experiences</li>
+            <li>Manual Processes Limiting <strong style="color:#FFD700;">GROWTH</strong></li>
+          </ul>
+          <div class="slide-buttons">
+            <button class="prevSlide">&larr; Previous</button>
+            <button class="nextSlide">Next &rarr;</button>
+          </div>
+        </div>
       </div>
-      <div class="slide-content">
-        <h3>Scaling Barriers</h3>
-        <ul>
-          <li>Can't hire fast enough to meet demand</li>
-          <li>Quality drops as volume increases</li>
-          <li>Growth plateau despite market opportunity</li>
-        </ul>
+
+      <!-- Slide 3: Scaling Barriers -->
+      <div class="slide slide3">
+        <div class="slide-animation">
+          <dotlottie-wc src="https://lottie.host/18eb0291-90c6-4b17-971f-48e7d4cd2284/wBlsS9g8aN.lottie" autoplay loop></dotlottie-wc>
+        </div>
+        <div class="slide-content">
+          <h3>SCALING BARRIERS</h3>
+          <ul>
+            <li>Can't hire fast enough to meet demand</li>
+            <li>Quality drops as volume increases</li>
+            <li><strong style="color:#FFD700;">GROWTH PLATEAU</strong> despite market opportunity</li>
+          </ul>
+          <div class="slide-buttons">
+            <button class="prevSlide">&larr; Previous</button>
+            <button class="nextSlide">Next &rarr;</button>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Buttons -->
-  <div class="slide-buttons">
-    <button id="prevSlide" class="btn-slide">&larr; Previous</button>
-    <button id="nextSlide" class="btn-slide">Next &rarr;</button>
+
+
+<section class="ai-section" id="aiSection">
+  <h2 class="ai-heading">Solution Architecture</h2>
+
+  <div class="ai-cards">
+    <div class="ai-card">
+      <div class="card-number">1</div>
+      <h3>AI Receptionist Foundation</h3>
+      <p>The Starting Point for Every Transformation</p>
+      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-number">2</div>
+      <h3>Outreach Automation Engine</h3>
+      <p>Amplify Your Reach, Multiply Your Results</p>
+      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-number">3</div>
+      <h3>Intelligence Analytics Dashboard</h3>
+      <p>Data-Driven Growth Optimization</p>
+      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+    </div>
+
+    <div class="ai-card">
+      <div class="card-number">4</div>
+      <h3>Advanced AI Transformation</h3>
+      <p>Enterprise-Level Business Automation</p>
+      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.ai-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.ai-heading {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
+  text-align: center;      /* fallback for text alignment */
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  color: #FFD70080 !important; /* Adjust to match your theme */
+  width: 100%;    /* ensure it spans full container */
+}
+
+
+.ai-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: -10px auto;
+}
+
+.ai-card {
+  background: #111;
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s, transform 0.8s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.ai-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ai-card:nth-child(1).active { transition-delay: 0.1s; }
+.ai-card:nth-child(2).active { transition-delay: 0.2s; }
+.ai-card:nth-child(3).active { transition-delay: 0.3s; }
+.ai-card:nth-child(4).active { transition-delay: 0.4s; }
+
+
+/* Optional: make section responsive */
+@media (max-width: 768px) {
+  .ai-cards {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const aiCards = document.querySelectorAll(".ai-card");
+
+  function handleScroll() {
+    aiCards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        card.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Trigger on page load in case already visible
+});
+</script>
+
+
+<section class="social-proof">
+  <div class="container">
+    <h2>Social Proof Explosion</h2>
+    <div class="grid">
+
+      <!-- Card 1: Healthcare Clinic -->
+      <div class="card">
+        <i class="fas fa-clinic-medical client-icon"></i>
+        <p class="highlight">300% appointment increase in 60 days</p>
+        <p class="client-name">Dr. Sarah Mitchell, Melbourne Family Clinic</p>
+      </div>
+
+      <!-- Card 2: Law Firm -->
+      <div class="card">
+        <i class="fas fa-gavel client-icon"></i>
+        <p class="highlight">$150K additional revenue in first quarter</p>
+        <p class="client-name">James Richardson, Richardson Legal</p>
+      </div>
+
+      <!-- Card 3: Home Services -->
+      <div class="card">
+        <i class="fas fa-tools client-icon"></i>
+        <p class="highlight">From 50 to 200 bookings monthly</p>
+        <p class="client-name">Mike Thompson, Elite Plumbing</p>
+      </div>
+
+      <!-- Card 4: Real Estate Agency -->
+      <div class="card">
+        <i class="fas fa-building client-icon"></i>
+        <p class="highlight">Never miss a property inquiry again</p>
+        <p class="client-name">Lisa Chen, Prestige Properties</p>
+      </div>
+
+      <!-- Card 5: Dental Practice -->
+      <div class="card">
+        <i class="fas fa-tooth client-icon"></i>
+        <p class="highlight">Eliminated double bookings completely</p>
+        <p class="client-name">Dr. Michael Roberts, Roberts Dental</p>
+      </div>
+
+      <!-- Card 6: Consulting Firm -->
+      <div class="card">
+        <i class="fas fa-chart-line client-icon"></i>
+        <p class="highlight">Freed up 20 hours weekly for billable work</p>
+        <p class="client-name">Amanda Wilson, Wilson Strategy</p>
+      </div>
+
+      <!-- Card 7: E-Commerce Store -->
+      <div class="card">
+        <i class="fas fa-shopping-cart client-icon"></i>
+        <p class="highlight">Tripled online sales in 90 days</p>
+        <p class="client-name">Kevin Lee, TrendyShop Online</p>
+      </div>
+
+      <!-- Card 8: Fitness Studio -->
+      <div class="card">
+        <i class="fas fa-dumbbell client-icon"></i>
+        <p class="highlight">Doubled membership sign-ups in 2 months</p>
+        <p class="client-name">Sophie Grant, PowerFit Studio</p>
+      </div>
+
+      <!-- Card 9: Restaurant -->
+      <div class="card">
+        <i class="fas fa-utensils client-icon"></i>
+        <p class="highlight">Increased reservations by 180% this quarter</p>
+        <p class="client-name">Carlos Ramirez, The Gourmet Table</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
 
 
 
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // tsParticles confined to hero
-  document.addEventListener("DOMContentLoaded", function() {
-    tsParticles.load("tsparticles", {
-      fullScreen: { enable: false },
-      fpsLimit: 120,
-      particles: {
-        number: { value: 80, density: { enable: true, area: 800 } },
-        color: { value: "#e68e2e" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: { min: 1, max: 5 } },
-        links: { enable: true, distance: 150, color: "#f5d393", opacity: 0.5, width: 1 },
-        move: { enable: true, speed: 1, outModes: "bounce" }
-      },
-      interactivity: {
-        events: { onHover: { enable: true, mode: "repulse" }, resize: true },
-        modes: { repulse: { distance: 200, duration: 0.4 } }
-      },
-      detectRetina: true
-    });
-  });
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    fpsLimit: 120,
+    particles: {
+      number: { value: 80, density: { enable: true, area: 800 } },
+      color: { value: "#e68e2e" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: { min: 1, max: 5 } },
+      links: { enable: true, distance: 150, color: "#f5d393", opacity: 0.5, width: 1 },
+      move: { enable: true, speed: 1, outModes: "bounce" }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+      modes: { repulse: { distance: 200, duration: 0.4 } }
+    },
+    detectRetina: true
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
   const overlayContent = document.getElementById('overlay-content');
   const overlayBg = document.getElementById('overlay-bg');
   const navbar = document.getElementById('navbar');
@@ -184,87 +502,165 @@
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-
-    // Overlay content moves faster and fades out
     overlayContent.style.transform = `translateY(${-scrollY * 0.8}px)`;
     overlayContent.style.opacity = `${Math.max(1 - scrollY / 300, 0)}`;
-
-    // Overlay background moves slower and fades out
     overlayBg.style.transform = `translateY(${-scrollY * 0.4}px)`;
     overlayBg.style.opacity = `${Math.max(1 - scrollY / 300, 0)}`;
-
-    // Navbar background changes gradually
-    if(scrollY > 50){
-      navbar.style.backgroundColor = 'rgb(245, 241, 241)';
-    } else {
-      navbar.style.backgroundColor = `rgba(245, 241, 241, ${0.7 + scrollY/200})`;
-    }
-
-    // Hero text appears smoothly after overlay fades
+    navbar.style.backgroundColor = scrollY > 50 ? 'rgb(245, 241, 241)' : `rgba(245, 241, 241, ${0.7 + scrollY/200})`;
     heroText.style.opacity = `${Math.min(scrollY / 300, 1)}`;
     heroText.style.transform = `translate(-50%, -50%) translateY(${30 - scrollY * 0.3}px)`;
   });
-
-
-
-
-
-
-
-
-  
+});
 </script>
 
 
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const overlay = document.getElementById('growthOverlay');
-  const slides = overlay.querySelectorAll('.slide');
-  const nextBtn = document.getElementById('nextSlide');
-  const prevBtn = document.getElementById('prevSlide');
+  const slideWrapper = document.querySelector(".slide-wrapper");
+  const slides = document.querySelectorAll(".slide");
+  const nextBtns = document.querySelectorAll(".nextSlide");
+  const prevBtns = document.querySelectorAll(".prevSlide");
   let currentSlide = 0;
+  const total = slides.length;
 
-  // Intersection Observer to watch Section 2
-  const section2 = document.querySelector('.risk-reversal-section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        // Show overlay after 5 sec delay
-        setTimeout(() => {
-          overlay.classList.add('active');
-        }, 3000);
-      } else {
-        overlay.classList.remove('active'); // hide when scroll back up
-      }
-    });
-  }, { threshold: 0.5 });
-
-  observer.observe(section2);
-
-  // Slide navigation
-  function showSlide(index){
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
+  function showSlide(i) {
+    slideWrapper.style.transform = `translateX(${-100 * i}%)`;
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
   }
 
-  nextBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slides.length;
+  nextBtns.forEach(btn => btn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % total;
     showSlide(currentSlide);
-  });
-
-  prevBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  }));
+  prevBtns.forEach(btn => btn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + total) % total;
     showSlide(currentSlide);
-  });
+  }));
 
-  // Init first slide
-  showSlide(currentSlide);
+  showSlide(0);
 });
 </script>
 
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const aiSection = document.getElementById("aiSection");
+
+    function handleScroll() {
+        const rect = aiSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.8) {
+            aiSection.classList.add("active");
+            window.removeEventListener("scroll", handleScroll); // trigger only once
+        }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // check immediately in case section already in viewport
+});
+</script>
+
+
+<!-- Footer -->
+<footer style="background-color: black; color: #fff; padding: 60px 0; font-family: 'Montserrat', sans-serif;">
+  <div class="container-fluid px-5">
+    <div class="row">
+
+      <!-- Column 1: Company Info -->
+      <div class="col-md-3 mb-4">
+           <p style="width:150px; margin-bottom:15px;">METAMAX  </p> 
+        <p>Transform Your Business. Amplify Your Growth. Automate Your Success.</p>
+        <p>Email: info@metamax.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#FFD700;">Services</h5>
+        <ul class="list-unstyled">
+          <li><a href="/GrowthSystems#aiReceptionist" class="footer-link">AI Receptionist</a></li>
+          <li><a href="/GrowthSystems#outreach" class="footer-link">Outreach Automation</a></li>
+          <li><a href="/GrowthSystems#analytics" class="footer-link">Analytics Dashboard</a></li>
+          <li><a href="/GrowthSystems#advancedAI" class="footer-link">Advanced AI Systems</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Resources -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#FFD700;">Resources</h5>
+        <ul class="list-unstyled">
+          <li><a href="/successstories" class="footer-link">Success Stories</a></li>
+          <li><a href="/GrowthSystems" class="footer-link">Growth System</a></li>
+          <li><a href="/InteractiveDemo" class="footer-link">Try Demo</a></li>
+          <li><a href="/audit" class="footer-link">Free Growth Audit</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Legal -->
+      <div class="col-md-3 mb-4">
+        <h5 style="color:#FFD700;">Legal</h5>
+        <ul class="list-unstyled">
+          <li><a href="/privacy" class="footer-link">Privacy Policy</a></li>
+          <li><a href="/terms" class="footer-link">Terms of Service</a></li>
+          <li><a href="/gdpr" class="footer-link">GDPR Compliance</a></li>
+          <li><a href="/security" class="footer-link">Security Information</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="row mt-4 pt-3 border-top" style="border-color: rgba(255,255,255);">
+      <div class="col-md-6">
+        <p class="mb-0">&copy; 2025 METAMAX. All Rights Reserved.</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <!-- Social Media -->
+        <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+        <!-- Trust Badges -->
+        <span class="badge bg-warning text-dark ms-2">Trusted</span>
+        <span class="badge bg-warning text-dark ms-1">Secure</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #FFD700;
+}
+
+.footer-social {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social:hover {
+  color: #FFD700;
+}
+
+@media (max-width: 768px) {
+  .text-md-end {
+    text-align: left !important;
+    margin-top: 10px;
+  }
+}
+</style>
 
 </body>
 </html>
