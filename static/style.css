@@ -536,98 +536,273 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 
 .social-proof h2 {
     font-size: 3rem;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     font-weight: 700;
     color: rgb(217, 189, 7) !important;
 }
 
-.social-proof .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    justify-items: center;
+/* =============================
+   SOCIAL PROOF SECTION
+============================= */
+.social-proof {
+  background: #100f0f;
+  padding: 100px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  text-align: center;
 }
 
-.social-proof .card {
-    background: rgb(185, 184, 184);
-    border-radius: 20px;
-    padding: 35px 25px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    transition: all 0.4s ease;
+.social-proof h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFD700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.social-proof .subtitle {
+  font-size: 1.1rem;
+  color: #cfcfcf;
+  margin-bottom: 70px;
+}
+
+/* =============================
+   CASE STUDY ROWS
+============================= */
+.case-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 80px;
+  text-align: left;
+  
+}
+
+.case-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.case-animation {
+  flex: 0 0 300px;
+  background: #FFD70020;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease;
+}
+
+.case-animation:hover {
+  transform: scale(1.05);
+}
+
+.case-animation dotlottie-wc {
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+}
+
+.case-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.case-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFD700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.case-content ul {
+  list-style: none;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.case-content ul li {
+  font-size: 1rem;
+  color: #e4e4e4;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.case-content ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.case-content blockquote {
+  font-size: 1rem;
+  font-style: italic;
+  color: #bbb;
+  margin: 15px 0;
+  border-left: 3px solid #FFD700;
+  padding-left: 10px;
+}
+
+.case-content .author {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+/* =============================
+   RESPONSIVE DESIGN
+============================= */
+@media (max-width: 992px) {
+  .case-row,
+  .case-row.reverse {
+    flex-direction: column;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+  }
+
+  .case-content {
+    max-width: 100%;
+  }
+
+  .case-content ul li {
+    text-align: left;
+  }
+}
+/* =============================
+   STARS
+============================= */
+.stars {
+  font-size: 1.2rem;
+  color: #FFD700;
+  margin: -10px 0 20px 0;
+  letter-spacing: 3px;
 }
 
-.social-proof .card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, rgb(61, 61, 61), rgba(237, 235, 235, 0.1));
-    transform: rotate(25deg);
-    transition: all 0.5s ease;
+/* =============================
+   LEARN MORE BUTTON
+============================= */
+.learn-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #FFD700, #e6b800);
+  color: #100f0f;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(255, 215, 0, 0.3);
 }
 
-.social-proof .card:hover::before {
-    transform: rotate(0deg);
+.learn-btn:hover {
+  background: linear-gradient(90deg, #e6b800, #FFD700);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+  transform: translateY(-3px);
 }
 
-.social-proof .card:hover {
-    transform: translateY(-15px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+
+/* Container & Section */
+.viz-section {
+    background-color: #1a1a1a;
+    padding: 80px 20px;
+    color: #ccc;
+}
+.viz-section .section-title {
+    text-align: center;
+    color: #ffb400;
+    font-size: 36px;
+    margin-bottom: 50px;
 }
 
-.social-proof .client-icon {
-    font-size: 50px;
-    background: linear-gradient(135deg, #FFD700, #080a0f);
-    color: white;
-    width: 90px;
-    height: 90px;
+/* Horizontal cards layout */
+.viz-cards {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 0 auto 25px auto;
-    transition: all 0.3s ease;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.viz-card {
+    background-color: #222;
+    flex: 1 1 220px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.viz-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 180, 0, 0.4);
 }
 
-.social-proof .card:hover .client-icon {
-    transform: scale(1.2);
-}
-
-.social-proof .highlight {
-    font-weight: 700;
-    font-size: 1.2rem;
+/* Icon styling & animation */
+.viz-card .icon {
+    font-size: 50px;
+    color: #ffb400;
     margin-bottom: 15px;
-    color: black;
+    display: inline-block;
+    animation: icon-bounce 2s infinite;
 }
 
-.social-proof .client-name {
-    font-size: 0.95rem;
-    color: #FFFFFF !important; /* pure bright white */
+/* Titles */
+.viz-card h5 {
+    color: #ffb400;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.viz-card p {
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* Icon bounce animation */
+@keyframes icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px) scale(1.1); }
+}
+
+/* Animated counters */
+.counter {
+    font-weight: bold;
+    color: #ffb400;
 }
 
 /* Responsive */
-@media (max-width: 1200px) {
-    .social-proof .grid {
-        gap: 30px;
-    }
-}
-
 @media (max-width: 900px) {
-    .social-proof .grid {
-        grid-template-columns: repeat(2, 1fr);
+    .viz-cards {
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
-@media (max-width: 600px) {
-    .social-proof .grid {
-        grid-template-columns: 1fr;
-    }
+/* Icons styling & animation */
+.viz-card .icon {
+    font-size: 50px;       /* Icon size */
+    color: #ffb400;        /* Golden color */
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: icon-bounce 2s infinite ease-in-out, icon-spin 10s linear infinite;
 }
 
+/* Bounce effect */
+@keyframes icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-
+/* Slow continuous rotation */
+@keyframes icon-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

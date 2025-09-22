@@ -1,465 +1,385 @@
 {% extends "base.html" %}
 {% block content %}
+    <style>
+      /* ===== GENERAL STYLING ===== */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+h1, h2, h3 {
+    margin: 0 0 15px 0;
+}
+p, li, label {
+    color: #ccc;
+}
+a {
+    color: #ffb400;
+    text-decoration: none;
+}
+ul {
+    padding-left: 20px;
+}
+button {
+    cursor: pointer;
+    border: none;
+    background-color: #ffb400;
+    color: #1a1a1a;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: #e0a500;
+    transform: scale(1.05);
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+textarea {
+    resize: vertical;
+}
+fieldset {
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #222;
+}
+legend {
+    font-weight: bold;
+    color: #ffb400;
+}
 
-<!-- SECTION 1: HERO -->
-<section class="py-5 text-center text-white" style="background: linear-gradient(135deg, #1B365D, #3C5A99);">
-  <div class="container">
-    <h1 class="fw-bold" style="font-family: 'Montserrat', sans-serif; font-size:48px;">
-      Ready to Transform Your Business?
-    </h1>
-    <p class="mt-3" style="font-family: 'Open Sans', sans-serif; font-size:18px; color:#dcdcdc;">
-      Book your free AI Growth Strategy session and discover your custom transformation roadmap
-    </p>
-  </div>
-</section>
+/* ===== HERO SECTION ===== */
+#hero {
+    background: linear-gradient(145deg, #0d0d0d, #575555);
+    text-align: center;
+    padding: 100px 20px;
+    overflow: hidden;
+}
+#hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffb400;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInUp 1s forwards;
+}
+#hero p {
+    font-size: 20px;
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.5s forwards;
+}
 
-<!-- SECTION 2: DUAL PATH CONVERSION -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="row">
-      
-      <!-- Path 1: Immediate Demo -->
-      <div class="col-md-6 border-end">
-        <h2 class="fw-bold" style="color:#1B365D;">See Your AI In Action Right Now</h2>
-        <button class="btn btn-lg mt-3" style="background:#FF6B35; color:white; font-weight:bold;">
-          TALK TO YOUR FUTURE AI RECEPTIONIST
-        </button>
-        <div class="mt-4 p-3 border rounded bg-light">
-          <h5>Live Interface Demo</h5>
-          <ul>
-            <li>Natural conversation flow</li>
-            <li>Appointment scheduling capability</li>
-            <li>Lead qualification demonstration</li>
-            <li>Multi-scenario testing</li>
-            <li>Performance metrics display</li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Path 2: Strategic Consultation -->
-      <div class="col-md-6">
-        <h2 class="fw-bold" style="color:#1B365D;">Get Your Custom Growth Strategy</h2>
-        <form class="mt-3">
-          <!-- Step 1 -->
-          <h5>Step 1: Business Profile</h5>
-          <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Company Name">
-          </div>
-          <div class="mb-2">
-            <select class="form-select">
-              <option>Industry</option>
-              <option>Healthcare</option>
-              <option>Legal</option>
-              <option>Real Estate</option>
-              <option>Home Services</option>
-            </select>
-          </div>
-          <div class="mb-2">
-            <label>Annual Revenue Range</label>
-            <input type="range" class="form-range">
-          </div>
-          <div class="mb-2">
-            <label>Current Team Size</label>
-            <input type="number" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label>Primary Growth Challenges</label><br>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox"> <label class="form-check-label">Leads</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox"> <label class="form-check-label">Conversions</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox"> <label class="form-check-label">Retention</label>
-            </div>
-          </div>
-          <button class="btn btn-primary">Next Step</button>
-        </form>
-      </div>
+/* ===== DUAL PATH RESTRUCTURED ===== */
+#dual-path {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 60px 20px;
+}
+#dual-path > div {
+    background-color: #414040;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+#dual-path > div:nth-child(1) {
+    animation-delay: 0.2s;
+}
+#dual-path > div:nth-child(2) {
+    animation-delay: 0.4s;
+}
+#dual-path h2 {
+    color: #ffb400;
+    margin-bottom: 20px;
+}
+#vapi-demo ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+#vapi-demo button {
+    margin-bottom: 20px;
+}
 
-    </div>
-  </div>
-</section>
+/* ===== PSYCHOLOGICAL ELEMENTS ===== */
+#psych-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 60px 20px;
+}
+#psych-elements > div {
+    background-color: #414040;
+    padding: 25px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+#psych-elements > div:hover {
+    transform: translateY(-10px);
+    background-color: #333;
+}
+#psych-elements h3 {
+    color: #ffb400;
+    margin-bottom: 15px;
+}
 
-<!-- SECTION 3: PSYCHOLOGICAL CONVERSION ELEMENTS -->
-<section class="py-5" style="background:#F8F9FA;">
-  <div class="container text-center">
-    <h4 class="fw-bold mb-3" style="color:#1B365D;">Trust & Security</h4>
-    <p>SSL Secure | Certified | GDPR Compliant | 100% Confidential</p>
-  </div>
-</section>
+/* ===== CONTACT INFORMATION (SECTION 4) ===== */
+#contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    background-color: #414040;
+    padding: 80px 20px;
+}
+#contact-info > div {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#contact-info > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px #ffb400;
+}
+#contact-info h3 {
+    color: #ffb400;
+    margin-bottom: 15px;
+}
 
-<section class="py-5 bg-white text-center">
-  <div class="container">
-    <h4 class="fw-bold mb-3" style="color:#1B365D;">Social Proof</h4>
-    <p>"Sarah from Melbourne just booked her demo"</p>
-    <p>"147 businesses transformed this month"</p>
-    <p>"Next available slot: Tomorrow 2:30 PM"</p>
-  </div>
-</section>
+/* ===== CALENDAR SECTION ===== */
+#calendar {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #111;
+}
+#calendar h2 {
+    color: #ffb400;
+    margin-bottom: 20px;
+}
+#calendar-widget {
+    background-color: #222;
+    display: inline-block;
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 300px;
+    transition: transform 0.3s ease;
+}
+#calendar-widget:hover {
+    transform: scale(1.05);
+}
 
-<section class="py-5 text-center text-white" style="background:#FF6B35;">
-  <div class="container">
-    <h4 class="fw-bold mb-3">Urgency & Scarcity</h4>
-    <p>Only 8 implementation spots available this month</p>
-    <p>Free strategy sessions booking quickly</p>
-    <p>Premium support slots limited</p>
-  </div>
-</section>
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-<section class="py-5 text-center text-white" style="background:#28A745;">
-  <div class="container">
-    <h4 class="fw-bold mb-3">Risk Reversal</h4>
-    <p>No obligation consultation</p>
-    <p>Your information stays confidential</p>
-    <p>Cancel anytime policy</p>
-    <p>100% satisfaction guaranteed</p>
-  </div>
-</section>
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    #dual-path > div {
+        padding: 30px 15px;
+    }
+    #contact-info {
+        grid-template-columns: 1fr;
+    }
+}
 
-<!-- SECTION 4: CONTACT INFORMATION -->
-<section class="py-5 text-white" style="background:#1B365D;">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4 mb-4">
-        <h5 class="fw-bold">Primary Contact</h5>
-        <p>Phone: 0420723854</p>
-        <p>Email: awaistouseef@hotmail.com</p>
-        <p>Business hours: 24/7 (AI-powered)</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h5 class="fw-bold">Office Address</h5>
-        <p>244 BlackBurn Road Glenwaverly, 3150 Melbourne</p>
-        <p>Meeting by appointment only</p>
-        <p>Virtual consultations available globally</p>
-      </div>
-      <div class="col-md-4 mb-4">
-        <h5 class="fw-bold">Response Time Guarantee</h5>
-        <p>Phone: within 3 rings</p>
-        <p>Emails: within 1 hour</p>
-        <p>Demos: immediate</p>
-        <p>Consultations: within 24 hours</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 5: INTERACTIVE CALENDAR -->
-<section class="py-5 bg-white text-center">
-  <div class="container">
-    <h2 class="fw-bold mb-4" style="color:#1B365D;">Book Your Consultation</h2>
-    <div class="ratio ratio-16x9 border rounded bg-light">
-      <span class="text-muted d-flex align-items-center justify-content-center">
-        [Embed Booking Calendar Here]
-      </span>
-    </div>
-  </div>
-</section>
-
-{% endblock %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Growth Crisis Overlay</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* Overlay Section */
-    .growth-crisis-overlay {  
-      position: relative;
-      width: 100%;
-      background: linear-gradient(135deg, #111, #1f1f1f, #2a2a2a);
-      text-align: center;
-      padding: 3rem 1rem;
-      opacity: 0;
-      transition: opacity 0.8s ease-out;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .growth-crisis-overlay.active { opacity: 1; }
-
-    /* Slides container */
-    .slide-container {
-      overflow: hidden;
-      width: 100%;
-      flex: 1;
-      display: flex;
-      align-items: center;
-    }
-    .slide-wrapper {
-      display: flex;
-      transition: transform 0.6s ease-in-out;
-      width: 300%; /* 3 slides → 100% each */
-    }
-
-    /* Individual Slide */
-    .slide {
-      flex: 0 0 100%;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      box-sizing: border-box;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
-    }
-    .slide.active { opacity: 1; transform: translateY(0); }
-
-    /* Left Animation */
-    .slide-animation {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      max-width: 380px;
-      min-height: 280px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    }
-    .slide-animation spline-viewer {
-      width: 100%;
-      height: 100%;
-    }
-
-    /* Right Content */
-    .slide-content {
-      flex: 2;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 2rem;
-      border-radius: 15px;
-      text-align: left;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      border-left: 5px solid #3fa9f5;
-      position: relative;
-    }
-    .slide-content h2 {
-      text-transform: uppercase;
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-      color: #3fa9f5;
-    }
-    .slide-content h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-    .slide-content p.tagline {
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      color: #ccc;
-      font-style: italic;
-    }
-    .slide-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .slide-content ul li {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      line-height: 1.5;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    .slide-content ul li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: #3fa9f5;
-    }
-
-    /* Global Buttons */
-    .slide-controls {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .slide-controls button {
-      background: #3fa9f5;
-      color: #fff;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 25px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 0 15px rgba(63,169,245,0.4);
-      transition: all 0.3s ease;
-    }
-    .slide-controls button:hover {
-      background: #fff;
-      color: #111;
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #3fa9f5;
-    }
-
-    /* Dots */
-    .slide-dots {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-    }
-    .slide-dots span {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #777;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .slide-dots span.active {
-      background: #3fa9f5;
-      box-shadow: 0 0 10px #3fa9f5;
-    }
-  </style>
+    </style>
 </head>
 <body>
 
-<section class="growth-crisis-overlay" id="growthOverlay">
-  <div class="slide-container">
-    <div class="slide-wrapper">
-
-      <!-- Slide 1 -->
-      <div class="slide">
-        <div class="slide-animation">
-          <spline-viewer url="https://prod.spline.design/or1BzBCOMeWe6ZJA/scene.splinecode"></spline-viewer>
-        </div>
-        <div class="slide-content">
-          <h2>THE GROWTH CRISIS</h2>
-          <h3>Revenue Leakage</h3>
-          <p class="tagline">Every call missed bleeds money fast</p>
-          <ul>
-            <li>40% of customers call outside business hours</li>
-            <li>Every missed call = $500+ lost revenue</li>
-            <li>Weekend inquiries go to competitors</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Slide 2 -->
-      <div class="slide">
-        <div class="slide-animation">
-          <spline-viewer url="https://prod.spline.design/oxM8Bl-tOIrqfSxP/scene.splinecode"></spline-viewer>
-        </div>
-        <div class="slide-content">
-          <h2>THE GROWTH CRISIS</h2>
-          <h3>Missed Opportunities</h3>
-          <p class="tagline">Slow follow-up kills hot leads</p>
-          <ul>
-            <li>Slow response on leads</li>
-            <li>Manual tracking errors</li>
-            <li>Potential clients lost daily</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="slide">
-        <div class="slide-animation">
-          <spline-viewer url="https://prod.spline.design/GhHVV2azDGpt0HxC/scene.splinecode"></spline-viewer>
-        </div>
-        <div class="slide-content">
-          <h2>THE GROWTH CRISIS</h2>
-          <h3>Slow Growth</h3>
-          <p class="tagline">Your team is stuck in repetitive work</p>
-          <ul>
-            <li>Processes not automated</li>
-            <li>Team wasting hours daily</li>
-            <li>Scaling revenue becomes inefficient</li>
-          </ul>
-        </div>
-      </div>
-
+<!-- HERO SECTION -->
+<section id="hero">
+    <div>
+        <h1>Ready to Transform Your Business?</h1>
+        <p>Book your free AI Growth Strategy session and discover your custom transformation roadmap</p>
     </div>
-  </div>
-
-  <!-- Global Navigation -->
-  <div class="slide-controls">
-    <button class="prevSlide">&larr; Previous</button>
-    <button class="nextSlide">Next &rarr;</button>
-  </div>
-  <div class="slide-dots"></div>
 </section>
 
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.64/build/spline-viewer.js"></script>
+<!-- DUAL PATH SECTION -->
+<section id="dual-path">
+    <div id="path1">
+        <h2>See Your AI In Action Right Now</h2>
+        <div id="vapi-demo">
+            <button>TALK TO YOUR FUTURE AI RECEPTIONIST</button>
+            <div id="live-interface">
+                <!-- Live demo widget placeholder -->
+            </div>
+            <ul>
+                <li>Natural conversation flow</li>
+                <li>Appointment scheduling capability</li>
+                <li>Lead qualification demonstration</li>
+                <li>Multi-scenario testing</li>
+                <li>Performance metrics display</li>
+            </ul>
+        </div>
+    </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const overlay = document.getElementById('growthOverlay');
-  const slideWrapper = overlay.querySelector('.slide-wrapper');
-  const slides = overlay.querySelectorAll('.slide');
-  const nextBtn = overlay.querySelector('.nextSlide');
-  const prevBtn = overlay.querySelector('.prevSlide');
-  const dotsContainer = overlay.querySelector('.slide-dots');
-  let currentSlide = 0;
-  const totalSlides = slides.length;
+    <div id="path2">
+        <h2>Get Your Custom Growth Strategy</h2>
+        <form id="consultation-form">
+            <!-- Step 1 -->
+            <fieldset>
+                <legend>Step 1: Business Profile</legend>
+                <label>Company Name: <input type="text" name="company_name"></label>
+                <label>Industry:
+                    <select name="industry">
+                        <option value="">Select Industry</option>
+                        <option value="tech">Tech</option>
+                        <option value="finance">Finance</option>
+                        <option value="health">Health</option>
+                    </select>
+                </label>
+                <style>
+                  .A1{
+                    display: block;
+                    margin-top: 10px !important; 
+                  }
+                </style>
+                <label class="A1">Annual Revenue Range: <input type="range" name="revenue" min="0" max="1000000"></label>
+                <label class="A1">Current Team Size: <input type="number" name="team_size"></label>
+                <label>Primary Growth Challenges:</label>
+                <input type="checkbox" name="challenges" value="marketing" > Marketing
+                <input type="checkbox" name="challenges" value="sales"> Sales
+                <input type="checkbox" name="challenges" value="operations"> Operations
+            </fieldset>
+            <!-- Step 2 -->
+            <fieldset>
+                <legend>Step 2: Current Situation</legend>
+                <label>Monthly Leads: <input type="range" name="leads" min="0" max="1000"></label>
+                <label>Percentage of Calls Missed: <input type="range" name="missed_calls" min="0" max="100"></label>
+                <label>Revenue Lost to Competitors: <input type="number" name="revenue_lost"></label>
+                <label>Biggest Operational Bottleneck: <textarea name="bottleneck"></textarea></label>
+            </fieldset>
+            <!-- Step 3 -->
+            <fieldset>
+                <legend>Step 3: Growth Goals</legend>
+                <label>12-Month Goals: <textarea name="goals_12months"></textarea></label>
+                <label>Impact of 2x Growth: <textarea name="growth_impact"></textarea></label>
+                <label>Scaling Challenges:</label>
+                <input type="checkbox" name="scaling_challenges" value="resources"> Resources
+                <input type="checkbox" name="scaling_challenges" value="strategy"> Strategy
+                <input type="checkbox" name="scaling_challenges" value="team"> Team
+                <label>Investment in Results: <input type="range" name="investment" min="0" max="100000"></label>
+            </fieldset>
+            <!-- Step 4 -->
+            <fieldset>
+                <legend>Step 4: Consultation Booking</legend>
+                <label>Preferred Time: <input type="datetime-local" name="preferred_time"></label>
+                <label>Contact Information:
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Your Email">
+                    <input type="tel" name="phone" placeholder="Your Phone">
+                </label>
+                <label>Specific Questions or Concerns: <textarea name="questions"></textarea></label>
+                <label>Urgency Level:
+                    <input type="radio" name="urgency" value="low"> Low
+                    <input type="radio" name="urgency" value="medium"> Medium
+                    <input type="radio" name="urgency" value="high"> High
+                </label>
+                <button type="submit">Book Consultation</button>
+            </fieldset>
+        </form>
+    </div>
+</section>
 
-  // Create dots
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => {
-      currentSlide = i;
-      showSlide(currentSlide);
-    });
-    dotsContainer.appendChild(dot);
-  });
-  const dots = dotsContainer.querySelectorAll("span");
+<!-- PSYCHOLOGICAL ELEMENTS -->
+<section id="psych-elements">
+    <div id="trust">
+        <h3>Trust & Security</h3>
+        <ul>
+            <li>SSL security badges</li>
+            <li>Industry certifications</li>
+            <li>Privacy policy assurance</li>
+            <li>GDPR compliance statement</li>
+            <li>Client confidentiality guarantee</li>
+        </ul>
+    </div>
+    <div id="social-proof">
+        <h3>Social Proof</h3>
+        <ul>
+            <li>Sarah from Melbourne just booked her demo</li>
+            <li>147 businesses transformed this month</li>
+            <li>Next available slot: Tomorrow 2:30 PM</li>
+        </ul>
+    </div>
+    <div id="urgency">
+        <h3>Urgency & Scarcity</h3>
+        <ul>
+            <li>Only 8 implementation spots available this month</li>
+            <li>Free strategy sessions booking quickly</li>
+            <li>Premium support slots limited</li>
+        </ul>
+    </div>
+    <div id="risk-reversal">
+        <h3>Risk Reversal</h3>
+        <ul>
+            <li>No obligation consultation</li>
+            <li>Your information stays confidential</li>
+            <li>Cancel anytime policy</li>
+            <li>100% satisfaction guaranteed</li>
+        </ul>
+    </div>
+</section>
 
-  function showSlide(index) {
-    const offset = -index * 100;
-    slideWrapper.style.transform = `translateX(${offset}%)`;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-      dots[i].classList.toggle('active', i === index);
-    });
-  }
+<!-- CONTACT INFO -->
+<section id="contact-info">
+    <div>
+        <h3>Primary Contact</h3>
+        <p>Phone: 0420723854</p>
+        <p>Email: awaistouseef@hotmail.com</p>
+        <p>Business hours: 24/7 AI-powered</p>
+    </div>
+    <div>
+        <h3>Office Address</h3>
+        <p>244 BlackBurn Road, Glenwaverly, 3150 Melbourne</p>
+        <p>Meeting by appointment only</p>
+        <p>Virtual consultations available globally</p>
+    </div>
+    <div>
+        <h3>Response Time Guarantee</h3>
+        <ul>
+            <li>Phone calls answered within 3 rings</li>
+            <li>Emails responded to within 1 hour</li>
+            <li>Demo requests processed immediately</li>
+            <li>Consultations scheduled within 24 hours</li>
+        </ul>
+    </div>
+</section>
 
-  nextBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-  });
-
-  prevBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-  });
-
-  // Initial
-  showSlide(currentSlide);
-});
-
-// Scroll trigger
-document.addEventListener("DOMContentLoaded", function() {
-  const growthOverlay = document.querySelector(".growth-crisis-overlay");
-  window.addEventListener("scroll", () => {
-    const overlayTop = growthOverlay.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (overlayTop < windowHeight * 0.8) {
-      growthOverlay.classList.add("active");
-    }
-  });
-});
-</script>
+<!-- CALENDAR -->
+<section id="calendar">
+    <h2>Book Your Session</h2>
+    <div id="calendar-widget">
+        <!-- Interactive calendar placeholder -->
+    </div>
+</section>
 
 </body>
 </html>
+{% endblock %}

@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- dotLottie Web Component CDN -->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module" defer></script>
+
 <!-- SECTION 1: HERO -->
-<section class="py-5 text-center text-white" style="background:#1B365D;">
+<section class="py-5 text-center" style="background:#000;">
   <div class="container">
-    <h1 class="fw-bold" style="font-family: 'Montserrat', sans-serif; font-size:48px;">
+    <h1 class="fw-bold" style="font-family: 'Montserrat', sans-serif; font-size:48px; color:#FFD700;">
       Real Businesses. Real Transformations. Real Results.
     </h1>
-    <p class="mt-3" style="font-family: 'Open Sans', sans-serif; font-size:18px; color:#dcdcdc;">
+    <p class="mt-3" style="font-family: 'Open Sans', sans-serif; font-size:18px; color:#ccc;">
       See how METAMAX AI Growth Systems have transformed businesses across industries
     </p>
   </div>
 </section>
 
 <!-- SECTION 2: FEATURED CASE STUDIES -->
-<section class="py-5 bg-white">
+<section class="py-5" style="background:#1a1a1a; color:#ccc;">
   <div class="container">
 
     <!-- Case Study 1 -->
     <div class="row align-items-center mb-5">
-      <div class="col-md-6">
-        <img src="/static/images/clinic.jpg" class="img-fluid rounded shadow" alt="Melbourne Family Clinic">
+      <div class="col-md-6 lottie-container">
+        <dotlottie-wc src="https://lottie.host/faca4eb1-a269-4733-bbfd-c7dbb22e0c40/edllglNYYf.lottie" style="width:100%; max-width:500px; height:400px;" autoplay loop></dotlottie-wc>
       </div>
       <div class="col-md-6">
-        <h3 class="fw-bold" style="color:#1B365D;">Melbourne Family Clinic</h3>
+        <h3 class="fw-bold">Melbourne Family Clinic</h3>
         <p><strong>Before State:</strong></p>
         <ul>
           <li>Missing 60% of after-hours appointment requests</li>
@@ -49,45 +52,49 @@
           <p class="mb-0">"METAMAX didn't just give us an AI receptionist – they gave us our lives back."</p>
           <footer class="blockquote-footer">Dr. Sarah Mitchell, Family Clinic</footer>
         </blockquote>
+        <a href="/live-demo" class="btn btn-golden mt-3">View Live Demo</a>
       </div>
     </div>
 
     <!-- Case Study 2 -->
     <div class="row align-items-center mb-5 flex-md-row-reverse">
-      <div class="col-md-6">
-        <img src="/static/images/legal.jpg" class="img-fluid rounded shadow" alt="Richardson Legal">
+      <div class="col-md-6 lottie-container">
+        <dotlottie-wc src="https://lottie.host/b1ec42aa-feae-43b6-95a4-0ac696ea2ddb/fM8KpJzEOb.lottie" style="width:100%; max-width:500px; height:400px;" autoplay loop></dotlottie-wc>
       </div>
       <div class="col-md-6">
-        <h3 class="fw-bold" style="color:#1B365D;">Richardson Legal</h3>
-        <p><strong>Challenge:</strong> High-value consultations lost to after-hours inquiries</p>
-        <p><strong>Solution:</strong> AI legal intake system with qualification protocols</p>
-        <p><strong>Results:</strong> $150K additional quarterly revenue, 90% consultation booking rate</p>
+        <h3 class="fw-bold">Elite Plumbing Services</h3>
+        <p><strong>Challenge:</strong> Seasonal demand fluctuations and missed emergency calls</p>
+        <p><strong>Solution:</strong> 24/7 AI dispatcher with urgency assessment</p>
+        <p><strong>Results:</strong> 200% increase in emergency bookings, 75% revenue growth</p>
+        <a href="/live-demo" class="btn btn-golden mt-3">View Live Demo</a>
       </div>
     </div>
 
     <!-- Case Study 3 -->
     <div class="row align-items-center mb-5">
-      <div class="col-md-6">
-        <img src="/static/images/plumbing.jpg" class="img-fluid rounded shadow" alt="Elite Plumbing Services">
+      <div class="col-md-6 lottie-container">
+        <dotlottie-wc src="https://lottie.host/54a937ee-afb9-4a37-b15a-21a3419ca85b/HGAjnGaO40.lottie" style="width:100%; max-width:500px; height:400px;" autoplay loop></dotlottie-wc>
       </div>
       <div class="col-md-6">
-        <h3 class="fw-bold" style="color:#1B365D;">Elite Plumbing Services</h3>
-        <p><strong>Challenge:</strong> Seasonal demand fluctuations and missed emergency calls</p>
-        <p><strong>Solution:</strong> 24/7 AI dispatcher with urgency assessment</p>
-        <p><strong>Results:</strong> 200% increase in emergency bookings, 75% revenue growth</p>
+        <h3 class="fw-bold">Richardson Legal</h3>
+        <p><strong>Challenge:</strong> High-value consultations lost to after-hours inquiries</p>
+        <p><strong>Solution:</strong> AI legal intake system with qualification protocols</p>
+        <p><strong>Results:</strong> $150K additional quarterly revenue, 90% consultation booking rate</p>
+        <a href="/live-demo" class="btn btn-golden mt-3">View Live Demo</a>
       </div>
     </div>
 
     <!-- Case Study 4 -->
     <div class="row align-items-center mb-5 flex-md-row-reverse">
-      <div class="col-md-6">
-        <img src="/static/images/realestate.jpg" class="img-fluid rounded shadow" alt="Prestige Properties">
+      <div class="col-md-6 lottie-container">
+        <dotlottie-wc src="https://lottie.host/0f2659ab-6c7d-47b6-b81a-d79717bd4402/1yGxkevC5G.lottie" style="width:100%; max-width:500px; height:400px;" autoplay loop></dotlottie-wc>
       </div>
       <div class="col-md-6">
-        <h3 class="fw-bold" style="color:#1B365D;">Prestige Properties</h3>
+        <h3 class="fw-bold">Prestige Properties</h3>
         <p><strong>Challenge:</strong> Property inquiries outside business hours going to competitors</p>
         <p><strong>Solution:</strong> AI property information system with viewing scheduler</p>
         <p><strong>Results:</strong> Zero missed inquiries, 40% increase in viewings booked</p>
+        <a href="/live-demo" class="btn btn-golden mt-3">View Live Demo</a>
       </div>
     </div>
 
@@ -95,10 +102,9 @@
 </section>
 
 <!-- SECTION 3: INTERACTIVE SUCCESS METRICS -->
-<!-- SECTION: INTERACTIVE SUCCESS METRICS -->
-<section class="py-5 text-white text-center" style="background:#1B365D;">
+<section class="py-5 text-white text-center" style="background:#000;">
   <div class="container">
-    <h2 class="fw-bold mb-4">Interactive Success Metrics</h2>
+    <h2 class="fw-bold mb-4" style="color:#FFD700;">Interactive Success Metrics</h2>
     <div class="row justify-content-center">
       <div class="col-md-2 col-6 mb-4">
         <h3 class="counter" data-target="47392">0</h3>
@@ -124,111 +130,16 @@
   </div>
 </section>
 
-<script>
-  // Counter animation function
-  function animateCounter(counter) {
-    const target = parseFloat(counter.getAttribute('data-target'));
-    const isInteger = Number.isInteger(target);
-    let current = 0;
-    const increment = target / 200; // adjust speed here
-    const updateCounter = () => {
-      current += increment;
-      if (current < target) {
-        counter.innerText = isInteger ? Math.floor(current) : current.toFixed(1);
-        requestAnimationFrame(updateCounter);
-      } else {
-        counter.innerText = isInteger ? target : target.toFixed(1);
-      }
-    };
-    updateCounter();
-  }
-
-  // Trigger when section is visible
-  const counters = document.querySelectorAll('.counter');
-  let started = false;
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting && !started) {
-      counters.forEach(counter => animateCounter(counter));
-      started = true;
-    }
-  }, { threshold: 0.3 });
-
-  observer.observe(document.querySelector('section'));
-</script>
-
-
-<!-- SECTION 4: INDUSTRY RESULTS -->
-<!-- SECTION 4: INDUSTRY-SPECIFIC RESULTS -->
-<section class="py-5 bg-white">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-5" style="color:#1B365D;">Industry-Specific Results</h2>
-    <div class="row justify-content-center">
-      
-      <!-- Healthcare -->
-      <div class="col-md-2 col-6 mb-4">
-        <h4 class="fw-bold" style="color:#1B365D;">Healthcare</h4>
-        <p class="text-muted">+250% appointments</p>
-      </div>
-
-      <!-- Legal -->
-      <div class="col-md-2 col-6 mb-4">
-        <h4 class="fw-bold" style="color:#1B365D;">Legal</h4>
-        <p class="text-muted">+$125K annual revenue</p>
-      </div>
-
-      <!-- Home Services -->
-      <div class="col-md-2 col-6 mb-4">
-        <h4 class="fw-bold" style="color:#1B365D;">Home Services</h4>
-        <p class="text-muted">+180% bookings</p>
-      </div>
-
-      <!-- Real Estate -->
-      <div class="col-md-2 col-6 mb-4">
-        <h4 class="fw-bold" style="color:#1B365D;">Real Estate</h4>
-        <p class="text-muted">+45% viewings</p>
-      </div>
-
-      <!-- Professional Services -->
-      <div class="col-md-2 col-6 mb-4">
-        <h4 class="fw-bold" style="color:#1B365D;">Professional</h4>
-        <p class="text-muted">35 hrs/month saved</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- SECTION 5: CLIENT VIDEO WALL (Placeholder) -->
-<section class="py-5 bg-white">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-4" style="color:#1B365D;">Client Video Wall</h2>
-    <div class="row">
-      {% for i in range(12) %}
-      <div class="col-md-3 col-6 mb-4">
-        <div class="ratio ratio-16x9 bg-light border">
-          <span class="text-muted">Video {{ i+1 }}</span>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 6: BEFORE/AFTER VISUALIZATIONS -->
-<!-- SECTION 6: BEFORE/AFTER VISUALIZATIONS -->
+<!-- SECTION 4: BEFORE & AFTER VISUALIZATIONS -->
 <section class="py-5" style="background:#F8F9FA;">
   <div class="container text-center">
     <h2 class="fw-bold mb-5" style="color:#1B365D;">Before & After Visualizations</h2>
     <div class="row g-4">
 
-      <!-- Revenue Growth -->
       <div class="col-md-6 col-lg-3">
         <div class="card viz-card h-100">
           <div class="card-body">
-            <div class="display-4 mb-3 text-primary">
-              <i class="bi bi-graph-up-arrow"></i>
-            </div>
+            <div class="display-4 mb-3 text-primary"><i class="bi bi-graph-up-arrow"></i></div>
             <h5 class="fw-bold" style="color:#1B365D;">Revenue Growth</h5>
             <p class="mt-3 text-muted">
               Before: $<span class="counter" data-target="500">0</span>K → 
@@ -238,13 +149,10 @@
         </div>
       </div>
 
-      <!-- Operational Efficiency -->
       <div class="col-md-6 col-lg-3">
         <div class="card viz-card h-100">
           <div class="card-body">
-            <div class="display-4 mb-3 text-success">
-              <i class="bi bi-speedometer2"></i>
-            </div>
+            <div class="display-4 mb-3 text-success"><i class="bi bi-speedometer2"></i></div>
             <h5 class="fw-bold" style="color:#1B365D;">Operational Efficiency</h5>
             <p class="mt-3 text-muted">
               Before: <span class="counter" data-target="65">0</span>% → 
@@ -254,13 +162,10 @@
         </div>
       </div>
 
-      <!-- Customer Satisfaction -->
       <div class="col-md-6 col-lg-3">
         <div class="card viz-card h-100">
           <div class="card-body">
-            <div class="display-4 mb-3 text-warning">
-              <i class="bi bi-emoji-smile"></i>
-            </div>
+            <div class="display-4 mb-3 text-warning"><i class="bi bi-emoji-smile"></i></div>
             <h5 class="fw-bold" style="color:#1B365D;">Customer Satisfaction</h5>
             <p class="mt-3 text-muted">
               Before: <span class="counter" data-target="70">0</span>% → 
@@ -270,13 +175,10 @@
         </div>
       </div>
 
-      <!-- Staff Productivity -->
       <div class="col-md-6 col-lg-3">
         <div class="card viz-card h-100">
           <div class="card-body">
-            <div class="display-4 mb-3 text-info">
-              <i class="bi bi-people"></i>
-            </div>
+            <div class="display-4 mb-3 text-info"><i class="bi bi-people"></i></div>
             <h5 class="fw-bold" style="color:#1B365D;">Staff Productivity</h5>
             <p class="mt-3 text-muted">
               Before: <span class="counter" data-target="40">0</span> hrs/wk → 
@@ -293,8 +195,38 @@
 <!-- Bootstrap Icons CDN -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-<!-- Styles for interaction -->
+<!-- Styles -->
 <style>
+  .btn-golden {
+    display:inline-block;
+    padding:0.7rem 1.5rem;
+    background:#FFD700;
+    color:#000;
+    font-weight:600;
+    border-radius:8px;
+    text-decoration:none;
+    transition:0.3s;
+  }
+  .btn-golden:hover {
+    background:#e6c200;
+    color:#000;
+  }
+  .lottie-container {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  h3, strong {
+    color:#FFD700;
+  }
+  ul li {
+    margin-bottom:0.5rem;
+  }
+  blockquote {
+    border-left: 4px solid #FFD700;
+    padding-left: 1rem;
+    color: #ccc;
+  }
   .viz-card {
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -305,64 +237,28 @@
   }
 </style>
 
-<!-- Counter Animation Script -->
+<!-- Counter Script -->
 <script>
   const counters = document.querySelectorAll('.counter');
-  const speed = 50; // lower = faster
-
   counters.forEach(counter => {
     const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const increment = Math.ceil(target / speed);
-
-      if (count < target) {
-        counter.innerText = count + increment;
-        setTimeout(updateCount, 30);
-      } else {
-        counter.innerText = target;
-      }
-    };
-
-    // Start animation when in viewport
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          updateCount();
-          observer.unobserve(entry.target);
+      const target = parseFloat(counter.getAttribute('data-target'));
+      let count = parseFloat(counter.innerText.replace(/[^0-9.]/g, '')) || 0;
+      const increment = target / 200;
+      if(count < target){
+        count += increment;
+        if(target % 1 !== 0) {
+          counter.innerText = count.toFixed(1);
+        } else {
+          counter.innerText = Math.ceil(count);
         }
-      });
-    }, { threshold: 0.6 });
-
-    observer.observe(counter);
-  });
-</script>
-
-
-<!-- JS for counters -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const counters = document.querySelectorAll('.counter');
-  const speed = 200;
-
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText.replace(/[^0-9]/g, '');
-
-      const inc = target / speed;
-
-      if (count < target) {
-        counter.innerText = Math.ceil(count + inc);
-        setTimeout(updateCount, 10);
+        setTimeout(updateCount, 20);
       } else {
         counter.innerText = target.toLocaleString();
       }
     };
-
     updateCount();
   });
-});
 </script>
 
 {% endblock %}

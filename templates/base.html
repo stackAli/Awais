@@ -87,51 +87,32 @@
       .nav-button { width: 100%; text-align: center; }
     }
 
-    /* HERO SECTION */
-    .hero-section {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-spline {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-spline spline-viewer {
-      width: 100%;
-      height: 100%;
-      border: none;
-      transform: scale(1.2); /* slightly zoom in spline */
-    }
+   
   </style>
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom" id="navbar">
   <div class="container-fluid px-3 px-md-4 px-lg-5">
     <a class="navbar-brand" href="/"><p>METAMAX</p></a>
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/GrowthSystems">Growth Systems</a></li>
         <li class="nav-item"><a class="nav-link" href="/">Interactive Demo</a></li>
         <li class="nav-item"><a class="nav-link" href="/contactus">Get Started</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">About Us</a>
-          <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+          <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/successstories">Success Stories</a></li>
             <li><a class="dropdown-item" href="/admin">Admin</a></li>
           </ul>
         </li>
-        <li><button class="nav-button">TALK TO AI NOW</button></li>
+        <li class="nav-item"><button class="nav-button">TALK TO AI NOW</button></li>
       </ul>
     </div>
   </div>
@@ -149,13 +130,13 @@
 
 <!-- Footer -->
 <!-- Footer -->
-<footer style="background-color: #1B365D; color: #fff; padding: 60px 0; font-family: 'Montserrat', sans-serif;">
+<footer style="background-color: black; color: #fff; padding: 60px 0; font-family: 'Montserrat', sans-serif;">
   <div class="container-fluid px-5">
     <div class="row">
 
       <!-- Column 1: Company Info -->
       <div class="col-md-3 mb-4">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="METAMAX Logo" style="width:150px; margin-bottom:15px;">
+           <p style="width:150px; margin-bottom:15px;">METAMAX  </p> 
         <p>Transform Your Business. Amplify Your Growth. Automate Your Success.</p>
         <p>Email: info@metamax.com</p>
         <p>Phone: +1 (555) 123-4567</p>
@@ -197,7 +178,7 @@
     </div>
 
     <!-- Bottom Bar -->
-    <div class="row mt-4 pt-3 border-top" style="border-color: rgba(255,255,255,0.2);">
+    <div class="row mt-4 pt-3 border-top" style="border-color: rgba(255,255,255);">
       <div class="col-md-6">
         <p class="mb-0">&copy; 2025 METAMAX. All Rights Reserved.</p>
       </div>
