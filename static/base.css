@@ -188,9 +188,7 @@ a.btn:hover::before,
     width: 55%; /* Full width button */
     justify-content: center;
   }
-  .nav-link.active::after {
-    content: none !important;
-  }
+  
 }
 
 /* Mobile phones */
