@@ -6,66 +6,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Navbar styling */
-.navbar-custom {
-  position: sticky; 
-  top: 0;
-  background-color: rgba(245, 241, 241, 0.7);
-  font-weight: 600;
-  height: 15vh;
-  z-index: 999; 
-  transition: background-color 0.5s ease;
-}
-.navbar-custom::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3.5px;
-  background-color: rgb(87, 85, 85);
-  
-}
-.dropdown-toggle::after
-.dropdown-toggle.active::after{
-      transform: translateY(5px);;
-}
-a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoration: none; position: relative; }
-.navbar-nav { margin-left: 1rem; }
-.nav-item { margin: 0 0.8rem; }
-.navbar-toggler { border: none; color: black; }
-.navbar-toggler-icon { filter: invert(0); }
-.nav-button { background-color: #766508; border-radius: 5px; border: none; color: black; padding: 8px 16px !important; font-weight: 700; font-size: 0.9rem; }
-.nav-button:hover { background-color: #60530a; color: black; }
-.dropdown-menu { background-color: white; border-radius: 5px; padding: 0.5rem 0; }
-.dropdown-item { font-weight: 500; padding: 0.5rem 1.5rem; }
-.dropdown-item:hover { background-color: #f2f2f2; }
-.navbar-brand p { display: inline-block; position: relative; z-index: 2; color: rgb(87, 85, 85) !important; font-weight: 700; font-size: 2rem; margin: 0; }
 
-/* Hover underline effect */
-.nav-link::after,
-.nav-link.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -21px;
-  width: 100%;
-  height: 1.2px;
-  background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s ease-in-out;
-  z-index: 1000;
-}
-.nav-link:hover::after,
-.nav-link.active::after {
-  transform: scaleX(1.2);
-}
-
-@media (max-width: 991px) {
-  .navbar-nav { flex-direction: column; align-items: flex-start; margin-left: 0; }
-  .nav-item { margin: 0.3rem 0; }
-  .nav-button { width: 100%; text-align: center; }
-}
 
 /* Hero Section */
 .hero-section {
@@ -219,7 +160,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
   .overlay-left h2 { font-size: 2.5rem; text-align: center; }
   .overlay-right { align-items: center; text-align: center; padding-left: 0; }
   .overlay-buttons { justify-content: center; }
-
+  .hero-section { height: 120vh;}
   .hero-text h1 { font-size: 2rem; }
   .hero-text p { font-size: 1rem; }
 }
@@ -388,6 +329,67 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
     @keyframes fadeSlideIn {
       to { opacity: 1; transform: translateY(0); }
     }
+
+
+
+    /* Tablet and below (stack animation above content) */
+@media (max-width: 991px) {
+  .slide {
+    flex-direction: column;   /* Stack vertically */
+    text-align: center;       /* Center content */
+    gap: 1.5rem;              /* Reduce spacing */
+  }
+
+  .slide-animation {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 250px;            /* Smaller animation height */
+  }
+
+  .slide-content {
+    flex: 0 0 auto;
+    width: 100%;
+    text-align: center;       /* Center headings and text */
+  }
+
+  .slide-content h3 {
+    font-size: 1.5rem;
+    border-left: none;        /* Remove side border */
+    border-top: 3px solid #957f04; /* Add top border instead */
+    padding-left: 0;
+    padding-top: 10px;
+  }
+
+  .slide-content ul li {
+    font-size: 1rem;
+    text-align: left;         /* Keep list aligned left */
+    padding-left: 15px;
+  }
+
+  .slide-buttons {
+    justify-content: center;  /* Center buttons */
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+/* Mobile small (below 576px) */
+@media (max-width: 575px) {
+  .slide-animation {
+    height: 200px;  /* Smaller Lottie animation */
+  }
+  .slide-content h3 {
+    font-size: 1.2rem;
+  }
+  .slide-content ul li {
+    font-size: 0.9rem;
+  }
+  .slide-buttons button {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+}
+
 /* AI Section / Transformation Timeline */
 .ai-section {
     background: rgb(129, 127, 127);
@@ -509,15 +511,20 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
         align-items: center;
         height: auto;
     }
+    .ai-section h2{
+      font-size: 2rem;
+    }
     .ai-section .ai-card {
         margin: 2rem 0;
         transform: translateY(40px);
+        margin-left: -10px;
     }
     .ai-section::before {
-        top: 0;
-        left: 20px;
+        top: 50px;
+        left: 32px;
         width: 4px;
-        height: 100%;
+        height: 80%;
+        margin-top: 150px;
     }
     .ai-section .card-number {
         left: 0;
@@ -538,7 +545,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
     font-size: 3rem;
     margin-bottom: 20px;
     font-weight: 700;
-    color: rgb(217, 189, 7) !important;
+    color: #957f04 !important;
 }
 
 /* =============================
@@ -548,14 +555,14 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
   background: #100f0f;
   padding: 100px 20px;
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color: #957f04;
   text-align: center;
 }
 
 .social-proof h2 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #FFD700;
+  color: #957f04;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
@@ -613,7 +620,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 .case-content h3 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #FFD700;
+  color: #957f04;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -637,7 +644,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
   content: "—";
   position: absolute;
   left: 0;
-  color: #FFD700;
+  color: #957f04;
   font-weight: bold;
 }
 
@@ -646,7 +653,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
   font-style: italic;
   color: #bbb;
   margin: 15px 0;
-  border-left: 3px solid #FFD700;
+  border-left: 3px solid #957f04;
   padding-left: 10px;
 }
 
@@ -660,6 +667,10 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
    RESPONSIVE DESIGN
 ============================= */
 @media (max-width: 992px) {
+
+  .social-proof h2{
+    font-size: 1.5rem;
+  }
   .case-row,
   .case-row.reverse {
     flex-direction: column;
@@ -719,7 +730,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 }
 .viz-section .section-title {
     text-align: center;
-    color: #ffb400;
+    color: #957f04;
     font-size: 36px;
     margin-bottom: 50px;
 }
@@ -747,7 +758,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 /* Icon styling & animation */
 .viz-card .icon {
     font-size: 50px;
-    color: #ffb400;
+    color: #957f04;
     margin-bottom: 15px;
     display: inline-block;
     animation: icon-bounce 2s infinite;
@@ -755,7 +766,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 
 /* Titles */
 .viz-card h5 {
-    color: #ffb400;
+    color: #957f04;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -775,7 +786,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 /* Animated counters */
 .counter {
     font-weight: bold;
-    color: #ffb400;
+    color: #957f04;
 }
 
 /* Responsive */
@@ -789,7 +800,7 @@ a, .nav-link, .dropdown-item { color: rgb(87, 85, 85) !important; text-decoratio
 /* Icons styling & animation */
 .viz-card .icon {
     font-size: 50px;       /* Icon size */
-    color: #ffb400;        /* Golden color */
+    color: #957f04;        /* Golden color */
     margin-bottom: 15px;
     display: inline-block;
     animation: icon-bounce 2s infinite ease-in-out, icon-spin 10s linear infinite;

@@ -3,10 +3,10 @@
 /* ===================== */
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: #111;
   color: #eee;
-  line-height: 1.6;
+
   overflow-x: hidden;
 }
 
@@ -19,7 +19,7 @@ h1, h2, h3 {
   text-align: center;
   font-size: 2.2rem;
   margin: 2.5rem 0 3rem;
-  color: #d4af37;
+  color: #957f04;
   position: relative;
   padding-bottom: 2rem;
 }
@@ -30,7 +30,7 @@ h1, h2, h3 {
   width: 80px;
   height: 3px;
   margin: 0.5rem auto 0;
-  background: #d4af37;
+  background: #957f04;
 }
 
 /* ===================== */
@@ -126,7 +126,7 @@ h1, h2, h3 {
 
 .service-card h3 {
   
-  color: #d4af37;
+  color: #957f04;
   margin-bottom: 1rem;
  
 }
@@ -146,7 +146,7 @@ h1, h2, h3 {
   margin-top: 1.2rem;
   font-size: 0.95rem;
   color: #aaa;
-  border-left: 3px solid #d4af37;
+  border-left: 3px solid #957f04;
   padding-left: 1rem;
 }
 
@@ -161,7 +161,7 @@ h1, h2, h3 {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.9rem 1.7rem;
-  background: #d4af37;
+  background: #957f04;
   color: #111;
   font-weight: bold;
   border-radius: 6px;
@@ -170,7 +170,7 @@ h1, h2, h3 {
 }
 
 .btn:hover {
-  background: #c09a2f;
+  background: #957f04;
 }
 
 /* ===================== */
@@ -186,7 +186,7 @@ h1, h2, h3 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2.5rem;
-  color: #FFD700; /* gold */
+  color: #957f04; /* gold */
 }
 
 .demo-grid {
@@ -220,14 +220,14 @@ h1, h2, h3 {
 
 .card-icon {
   font-size: 28px;
-  color: #FFD700; /* gold */
+  color: #957f04; /* gold */
 }
 
 .demo-card h3 {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #FFD700;
+  color: #957f04;
 }
 
 .demo-card p {
@@ -263,5 +263,109 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .demo-grid {
     grid-template-columns: 1fr; /* 1 column */
+  }
+}
+/* ===================== */
+/* RESPONSIVE ADJUSTMENTS */
+/* ===================== */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  /* Services timeline stacks */
+  .services::before {
+    left: 8px; /* move divider to side */
+    width: 2px;
+  }
+
+  .service-card {
+    max-width: 100%;
+    margin: 2rem 0;
+    transform: translateX(0) !important; /* reset animation offset */
+  }
+
+  .service-card:nth-child(odd),
+  .service-card:nth-child(even) {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  /* Integration section grid → 2 cols */
+  .demo-grid {
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+  }
+}
+
+/* Mobiles (≤ 768px) */
+@media (max-width: 768px) {
+  /* Hero text */
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  /* Stack services vertically */
+  .services::before {
+    display: none; /* remove divider line */
+  }
+
+  .service-card {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .service-card ul li {
+    font-size: 0.9rem;
+  }
+
+  .impact {
+    font-size: 0.85rem;
+  }
+
+  /* Integration section grid → 1 col */
+  .demo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .demo-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Small Mobiles (≤ 480px) */
+@media (max-width: 480px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .service-card {
+    padding: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .btn,
+  .btn-demo {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
   }
 }

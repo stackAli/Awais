@@ -12,14 +12,14 @@ def home():
 
 @app.route("/GrowthSystems")
 def about():
-    return render_template("growth.html", page="Growth")
+    return render_template("growth.html", page="Growth Systems")
 
 @app.route("/successstories")
 def successstories():
-    return render_template("successstories.html", page="successstories")
+    return render_template("successstories.html", page="Success Stories")
 @app.route("/contactus")
 def contactus():
-    return render_template("contactus.html", page="contactus")
+    return render_template("contactus.html", page="Get Started")
 
 
 

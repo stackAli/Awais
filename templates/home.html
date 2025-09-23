@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Metamax Hero</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
 
   <!-- Bootstrap + Fonts + Icons -->
@@ -14,41 +9,20 @@
   <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
   <!-- tsparticles CDN -->
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-</head>
-<body>
 
-  <style>/* =========================
+
+{% extends "base.html" %}
+{% block content %}
+ <style>
+/* =========================
    HOLOGRAPHIC BUTTON STYLE (GLOBAL)
 ========================= */
-
-/* About Us Dropdown */
-#aboutDropdown::after { 
-  display: none !important; 
-}
-
-#aboutDropdown::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -21px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s ease-in-out;
-  z-index: 1000;
-}
-
-#aboutDropdown:hover::before { 
-  transform: scaleX(1.2); 
-}
 
 .dropdown-menu { 
   background-color: white; 
   border-radius: 5px; 
   padding: 0.5rem 0; 
 }
-
 
 .dropdown-item { 
   font-weight: 500; 
@@ -63,14 +37,11 @@ button,
 a.btn,
 a.btn-demo,
 a.btn-services,
-.nav-button,
 .btn-learn,
 .slide-buttons button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  
- 
   background: #050606;
   border: none;
   border-radius: 15px;
@@ -83,14 +54,12 @@ a.btn-services,
   overflow: hidden;
   transition: all 0.5s ease;
   z-index: 1;
-  
 }
 
 button::before,
 a.btn::before,
 a.btn-demo::before,
 a.btn-services::before,
-.nav-button::before,
 .btn-learn::before,
 .slide-buttons button::before {
   content: '';
@@ -115,11 +84,9 @@ button:hover,
 a.btn:hover,
 a.btn-demo:hover,
 a.btn-services:hover,
-.nav-button:hover,
 .btn-learn:hover,
 .slide-buttons button:hover {
   transform: scale(1.05);
-  
   color: #fff;
 }
 
@@ -127,7 +94,6 @@ button:hover::before,
 a.btn:hover::before,
 a.btn-demo:hover::before,
 a.btn-services:hover::before,
-.nav-button:hover::before,
 .btn-learn:hover::before,
 .slide-buttons button:hover::before {
   opacity: 1;
@@ -135,31 +101,9 @@ a.btn-services:hover::before,
 }
 </style>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom" id="navbar">
-  <div class="container-fluid px-3 px-md-4 px-lg-5">
-    <a class="navbar-brand" href="/"><p>METAMAX</p></a>
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/GrowthSystems">Growth Systems</a></li>
-        <li class="nav-item"><a class="nav-link" href="/">Interactive Demo</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contactus">Get Started</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">About Us</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/successstories">Success Stories</a></li>
-            <li><a class="dropdown-item" href="/admin">Admin</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><button class="nav-button">TALK TO AI NOW</button></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+
+
+<body>
 
 <!-- Hero Section -->
 <section class="hero-section">
@@ -750,4 +694,5 @@ counters.forEach(counter => {
 </style>
 
 </body>
-</html>
+
+{% endblock %}

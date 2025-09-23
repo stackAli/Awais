@@ -4,131 +4,82 @@
   <meta charset="UTF-8">
   <title>{{ page }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Favicon -->
   <link rel="icon" href="{{ url_for('static', filename='favicon.ico.png') }}" type="image/x-icon">
-  
-  <style>
-    body { 
-      margin: 0; 
-      padding: 0; 
-      font-family: 'Montserrat', sans-serif; 
-      overflow-x: hidden;
-    }
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.1/lottie.min.js"></script>
 
-    /* Navbar styling */
-    .navbar-custom {
-      position: relative;
-      background-color: rgb(245, 241, 241);
-      font-weight: 600;
-      height: 15vh;
-    }
-    .navbar-custom::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background-color: rgb(87, 85, 85);
-    }
-    a, .nav-link, .dropdown-item, .text-white.text-decoration-none {
-      color: rgb(87, 85, 85) !important;
-      text-decoration: none;
-      position: relative;
-    }
-    .navbar-nav { margin-left: 1rem; }
-    .nav-item { margin: 0 0.8rem; }
-    .navbar-toggler { border: none; color: black; }
-    .navbar-toggler-icon { filter: invert(0); }
-    .nav-button { background-color: #FF6B35; border-radius: 5px; border: none; color: white; padding: 6px 16px; font-weight: 700; font-size: 0.9rem; }
-    .nav-button:hover { background-color: #e55b2b; color: white; }
-    .dropdown-menu { background-color: white; border-radius: 5px; padding: 0.5rem 0; }
-    .dropdown-item { font-weight: 500; padding: 0.5rem 1.5rem; }
-    .dropdown-item:hover { background-color: #f2f2f2; }
-    .navbar-brand p { display: inline-block; position: relative; z-index: 2; color: rgb(87, 85, 85) !important; font-weight: 700; font-size: 2rem; margin: 0; }
+  <!-- Bootstrap + Fonts + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+  <!-- tsparticles CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-    /* Hover underline shine effect for links */
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -21px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
-      transform: scaleX(0);
-      transition: transform 0.4s ease-in-out;
-      z-index: 1000;
-    }
-    .nav-link:hover::after { transform: scaleX(1.2); }
-    #aboutDropdown::after { display: none !important; }
-    #aboutDropdown::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -21px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
-      transform: scaleX(0);
-      transition: transform 0.4s ease-in-out;
-      z-index: 1000;
-    }
-    #aboutDropdown:hover::before { transform: scaleX(1.2); }
 
-    @media (max-width: 991px) {
-      .navbar-nav { flex-direction: column; align-items: flex-start; margin-left: 0; }
-      .nav-item { margin: 0.3rem 0; }
-      .nav-button { width: 100%; text-align: center; }
-    }
-
-   
-  </style>
+ 
 </head>
 <body>
+ 
 
-<!-- Navbar -->
+
+<!-- NEW NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light navbar-custom" id="navbar">
   <div class="container-fluid px-3 px-md-4 px-lg-5">
+    <!-- Brand -->
     <a class="navbar-brand" href="/"><p>METAMAX</p></a>
+
+    <!-- Toggler -->
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Nav Links -->
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/GrowthSystems">Growth Systems</a></li>
-        <li class="nav-item"><a class="nav-link" href="/">Interactive Demo</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contactus">Get Started</a></li>
+       <li class="nav-item">
+           <a class="nav-link {% if page == 'Home' %}active{% endif %}" href="/">Home</a>
+       </li>
+        <li class="nav-item">
+           <a class="nav-link {% if page == 'Growth Systems' %}active{% endif %}" href="/GrowthSystems">Services</a>
+       </li>
+        <li class="nav-item">
+           <a class="nav-link {% if page == 'Interactive Demo' %}active{% endif %}" href="/InteractiveDemo">Interactive Demo</a>
+        <li class="nav-item">
+           <a class="nav-link {% if page == 'Get Started' %}active{% endif %}" href="/contactus">Get Started</a>
+       </li>
+
+        <!-- Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">About Us</a>
+          <a class="nav-link dropdown-toggle {% if page in ['Success Stories', 'Admin'] %}active{% endif %}" 
+            href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown">
+            About Us
+          </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/successstories">Success Stories</a></li>
-            <li><a class="dropdown-item" href="/admin">Admin</a></li>
+            <li><a class="dropdown-item {% if page == 'Success Stories' %}active{% endif %}" href="/successstories">Success Stories</a></li>
+            <li><a class="dropdown-item {% if page == 'Admin' %}active{% endif %}" href="/admin">Admin</a></li>
           </ul>
         </li>
-        <li class="nav-item"><button class="nav-button">TALK TO AI NOW</button></li>
+
+
+        <!-- Button -->
+        <li class="nav-item">
+          <button class="nav-button">TALK TO AI NOW</button>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+<div>
+  {% block content %}{% endblock %}
+</div>
 
-<!-- HERO SECTION without Overlay -->
-<section class="hero-section">
-  <div class="hero-spline">
-    <spline-viewer url="YOUR_SPLINE_URL"></spline-viewer>
-  </div>
-</section>
-
-<!-- Page Content -->
-{% block content %}{% endblock %}
-
-<!-- Footer -->
 <!-- Footer -->
 <footer style="background-color: black; color: #fff; padding: 60px 0; font-family: 'Montserrat', sans-serif;">
   <div class="container-fluid px-5">
@@ -228,9 +179,7 @@
 }
 </style>
 
-
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>

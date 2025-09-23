@@ -1,0 +1,222 @@
+ 
+/* General Body */
+body { 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Montserrat', sans-serif; 
+  overflow-x: hidden;
+}
+
+/* Navbar styling */
+.navbar-custom {
+  position: sticky; 
+  top: 0;
+  background-color: rgba(245, 241, 241);
+  font-weight: 600;
+  height: 15vh;
+  z-index: 999; 
+  transition: background-color 0.5s ease;
+}
+.navbar-custom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5px;
+  background-color: rgb(87, 85, 85);
+}
+
+/* Brand */
+.navbar-brand p { 
+  display: inline-block; 
+  position: relative; 
+  z-index: 2; 
+  color: rgb(87, 85, 85) !important; 
+  font-weight: 700; 
+  font-size: 2rem; 
+  margin: 0; 
+}
+
+/* Links */
+a, .nav-link, .dropdown-item { 
+  color: rgb(87, 85, 85) !important; 
+  text-decoration: none; 
+  position: relative; 
+}
+.navbar-nav { margin-left: 1rem; }
+.nav-item { margin: 0 0.8rem; }
+.navbar-toggler { border: none; color: black; }
+.navbar-toggler-icon { filter: invert(0); }
+
+/* Hover underline effect */
+.nav-link::after,
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -21px;
+  width: 100%;
+  height: 1.2px;
+  background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1.2);
+}
+
+/* Dropdown underline */
+#aboutDropdown::after { display: none !important; }
+#aboutDropdown::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -21px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(249, 178, 45), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease-in-out;
+  z-index: 1000;
+}
+#aboutDropdown:hover::before { transform: scaleX(1.2); }
+
+.dropdown-menu { 
+  background-color: white; 
+  border-radius: 5px; 
+  padding: 0.5rem 0; 
+}
+.dropdown-item { 
+  font-weight: 500; 
+  padding: 0.5rem 1.5rem; 
+}
+.dropdown-item:hover { 
+  background-color: #f2f2f2; 
+}
+
+/* HOLOGRAPHIC BUTTON STYLE */
+button,
+a.btn,
+.nav-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #050606;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  z-index: 1;
+  padding: 8px 18px;
+}
+
+button::before,
+a.btn::before,
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(255, 215, 0, 0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: 0;
+}
+
+button:hover,
+a.btn:hover,
+.nav-button:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+
+button:hover::before,
+a.btn:hover::before,
+.nav-button:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+
+/* ============================= */
+/* RESPONSIVE NAVBAR STYLING */
+/* ============================= */
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
+  .navbar-custom {
+    height: auto; /* Let content define height */
+    padding: 0 1rem;
+  }
+
+  .navbar-brand p {
+    font-size: 1.6rem; /* Slightly smaller brand */
+  }
+
+  .navbar-nav {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .nav-link::after {
+    bottom: -8px; /* Adjust underline */
+  }
+
+  .nav-button {
+    margin-top: 0.8rem;
+    width: 55%; /* Full width button */
+    justify-content: center;
+  }
+  .nav-link.active::after {
+    content: none !important;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 576px) {
+  .navbar-brand p {
+    font-size: 1.4rem; /* Smaller logo text */
+  }
+
+  .navbar-toggler {
+    font-size: 1.2rem;
+  }
+
+  .navbar-custom {
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem; /* Slightly smaller links */
+  }
+
+  .nav-button {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+  .nav-link.active::after {
+    content: none !important;
+  }
+}
+  
