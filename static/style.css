@@ -3,17 +3,14 @@ body {
   margin: 0; 
   padding: 0; 
   font-family: 'Montserrat', sans-serif; 
-  overflow-x: hidden;
+  overflow-x: visible;
 }
-
-
-
 /* Hero Section */
 .hero-section {
   position: relative;
   height: 150vh;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   background: linear-gradient(to right, #100f0f, #ebeae8);
 }
 
@@ -392,7 +389,7 @@ body {
 
 /* AI Section / Transformation Timeline */
 .ai-section {
-    background: rgb(129, 127, 127);
+    background: rgba(245, 241, 241);
     padding: 8rem 2rem;
     font-family: 'Montserrat', sans-serif;
     color: #FFD70080; /* gold text for headings and highlights */
@@ -433,7 +430,7 @@ body {
 
 /* Individual AI Card */
 .ai-section .ai-card {
-    background: #e8eaeb; /* dark blue card */
+    background: #4c4d4d; /* dark blue card */
     border-radius: 12px;
     padding: 2rem 1.5rem;
     flex: 1 1 22%;
@@ -459,7 +456,7 @@ body {
 .ai-section .card-number {
     width: 40px;
     height: 40px;
-    background: #FFD700;
+    background: #FFD70080;
     color: #0d0d0d;
     border-radius: 50%;
     display: flex;
@@ -471,7 +468,7 @@ body {
     top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    
 }
 
 /* Card content */
@@ -485,13 +482,13 @@ body {
 .ai-section p {
     font-size: 14px;
     margin: 0.3rem 0 1rem 0;
-    color: #FFD700 !important;
+    color: #FFD70080 !important;
 }
 
 /* Learn More Button */
 .ai-section .btn-learn {
     display: inline-block;
-    background: #FFD700;
+    background: #FFD70080;
     color: black !important ;
     padding: 12px 20px;
     border-radius: 8px;
@@ -552,7 +549,7 @@ body {
    SOCIAL PROOF SECTION
 ============================= */
 .social-proof {
-  background: #100f0f;
+  background: rgb(245, 241, 241);
   padding: 100px 20px;
   font-family: 'Montserrat', sans-serif;
   color: #957f04;
@@ -569,7 +566,7 @@ body {
 
 .social-proof .subtitle {
   font-size: 1.1rem;
-  color: #cfcfcf;
+  color: #080707;
   margin-bottom: 70px;
 }
 
@@ -633,7 +630,7 @@ body {
 
 .case-content ul li {
   font-size: 1rem;
-  color: #e4e4e4;
+  color: #060101;
   margin-bottom: 12px;
   position: relative;
   padding-left: 20px;
@@ -724,7 +721,7 @@ body {
 
 /* Container & Section */
 .viz-section {
-    background-color: #1a1a1a;
+    background-color: rgba(245, 241, 241);
     padding: 80px 20px;
     color: #ccc;
 }
