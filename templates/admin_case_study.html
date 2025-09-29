@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Manage Success Story</h2>
+
+{% if case_study %}
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Challenge</th>
+      <th>Solution</th>
+      <th>Results</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td>{{ case_study.id }}</td>
+      <td>{{ case_study.title }}</td>
+      <td>{{ case_study.challenge[:40] }}...</td>
+      <td>{{ case_study.solution[:40] }}...</td>
+      <td>{{ case_study.results[:40] }}...</td>
+      <td>
+        <a href="{{ url_for('casestudies.edit_success_story', id=case_study.id) }}">Edit</a>
+      </td>
+    </tr>
+  </table>
+{% else %}
+  <p>No success story added yet.</p>
+  <a href="{{ url_for('casestudies.add_success_story') }}">+ Add Success Story</a>
+{% endif %}
+
+{% endblock %}

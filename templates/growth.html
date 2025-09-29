@@ -1,111 +1,92 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <link rel="stylesheet" href="{{ url_for('static', filename='growth.css') }}">
+
 <!-- SECTION 1 HERO -->
-  <section class="hero" style="padding-bottom: 2rem;">
-    <div class="hero-content">
-      <h1>Complete <span>AI Powered</span> Growth Systems</h1>
-      <p>From first contact to final sale - we automate every step of your customer journey</p>
+<section class="hero" style="padding-bottom: 2rem; position: relative; overflow: hidden;">
+  <!-- Particles Background -->
+  <div id="tsparticles"></div>
+
+  <div class="hero-content" style="position: relative; z-index: 2;">
+    <h1>Complete <span>AI Powered</span> Growth Systems</h1>
+    <p>From first contact to final sale - we automate every step of your customer journey</p>
+  </div>
+</section>
+
+<!-- tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    fpsLimit: 120,
+    particles: {
+      number: { value: 60, density: { enable: true, area: 800 } },
+      color: { value: "#FFD700" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: { min: 1, max: 4 } },
+      links: { enable: true, distance: 150, color: "#FFD700", opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 1, outModes: "bounce" }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+      modes: { repulse: { distance: 200, duration: 0.4 } }
+    },
+    detectRetina: true
+  });
+});
+</script>
+
+<!-- SECTION 2 SERVICE ARCHITECTURE -->
+ 
+<section class="services">
+  <h2 class="section-title" style="font-weight: bold; text-align: center; margin: 40px 0; color: #957f04;">
+    Service Architecture
+  </h2>
+
+  <div class="service-grid" style="margin-top: 300px;">
+    {% for service in services %}
+    <div class="service-card 
+                {% if service.highlight %}highlight{% endif %} 
+                {% if service.premium %}premium{% endif %}">
+      
+      <h3>{{ service.title }}</h3>
+
+      <!-- Features -->
+      <ul>
+        {% for feature in service.features.split("\n") %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- Impact -->
+      <div class="impact">
+        <p><strong>Business Impact:</strong></p>
+        {% for point in service.impact.split("\n") %}
+        <p>{{ point }}</p>
+        {% endfor %}
+      </div>
+
+      <p class="details">
+        Implementation: {{ service.implementation }}<br>
+        Investment: {{ service.investment }}
+      </p>
+
+      <a href="#" class="btn">TALK TO OUR AI RECEPTIONIST NOW</a>
     </div>
-  </section>
+    {% endfor %}
+  </div>
+</section>
 
-  <!-- SECTION 2 SERVICE ARCHITECTURE -->
-   <h2 class="section-title" style="font-weight: larger ;">Service Architecture</h2>
-  <section class="services">
-    
-    <div class="service-grid">
+<!-- SECTION 3 INTERACTIVE VAPI INTEGRATION -->
+<section class="integration">
+  <h2 class="section-title" style="text-align:center; margin:40px 0; color:#222;">
+    Interactive VAPI Integration
+  </h2>
 
-      <!-- Tier 1 -->
-      <div class="service-card highlight abc">
-        <h3>The Starting Point for Every Transformation</h3>
-        <ul>
-          <li>24/7 appointment booking and lead capture</li>
-          <li>Human-like conversation intelligence</li>
-          <li>Instant calendar synchronization</li>
-          <li>Automatic lead qualification</li>
-          <li>Multi-language support capability</li>
-          <li>CRM integration and data capture</li>
-        </ul>
-        <div class="impact">
-          <p><strong>Business Impact:</strong></p>
-          <p>40% increase in captured leads</p>
-          <p>75% reduction in missed opportunities</p>
-          <p>300% ROI within first 90 days</p>
-        </div>
-        <p class="details">Implementation: 2–3 weeks<br>Investment: Starting at $2,997/month</p>
-        <a href="#" class="btn">TALK TO OUR AI RECEPTIONIST NOW</a>
-      </div>
-
-      <!-- Tier 2 -->
-      <div class="service-card">
-        <h3>Amplify Your Reach, Multiply Your Results</h3>
-        <ul>
-          <li>Automated follow-up sequences</li>
-          <li>Personalized email and SMS campaigns</li>
-          <li>Dormant lead reactivation systems</li>
-          <li>Behavioral trigger-based outreach</li>
-          <li>A/B testing and optimization</li>
-          <li>Performance tracking and analytics</li>
-        </ul>
-        <div class="impact">
-          <p><strong>Business Impact:</strong></p>
-          <p>200% increase in follow-up consistency</p>
-          <p>45% improvement in lead conversion</p>
-          <p>60% reduction in manual outreach time</p>
-        </div>
-        <p class="details">Implementation: 3–4 weeks<br>Investment: Starting at $1,997/month</p>
-      </div>
-
-      <!-- Tier 3 -->
-      <div class="service-card">
-        <h3>Data-Driven Growth Optimization</h3>
-        <ul>
-          <li>Real-time business intelligence</li>
-          <li>Predictive analytics and forecasting</li>
-          <li>Customer journey visualization</li>
-          <li>ROI tracking and optimization</li>
-          <li>Performance benchmarking</li>
-          <li>Automated reporting systems</li>
-        </ul>
-        <div class="impact">
-          <p><strong>Business Impact:</strong></p>
-          <p>35% improvement in decision-making speed</p>
-          <p>25% increase in profit margins</p>
-          <p>90% reduction in reporting time</p>
-        </div>
-        <p class="details">Implementation: 2–3 weeks<br>Investment: Starting at $1,497/month</p>
-      </div>
-
-      <!-- Tier 4 -->
-      <div class="service-card premium">
-        <h3>Enterprise-Level Business Automation</h3>
-        <ul>
-          <li>Custom AI solution development</li>
-          <li>Complete process automation</li>
-          <li>Advanced integration capabilities</li>
-          <li>White-label options available</li>
-          <li>Enterprise-level scalability</li>
-          <li>Dedicated success management</li>
-        </ul>
-        <div class="impact">
-          <p><strong>Business Impact:</strong></p>
-          <p>Complete operational transformation</p>
-          <p>Unlimited scalability potential</p>
-          <p>Enterprise-level efficiency gains</p>
-        </div>
-        <p class="details">Implementation: 6–12 weeks<br>Investment: Custom pricing from $5,997/month</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SECTION 3 INTERACTIVE VAPI INTEGRATION -->
-  <section class="integration">
-  <h2 class="section-title">Interactive VAPI Integration</h2>
   <div class="demo-grid">
-
     <!-- Demo 1: AI Receptionist -->
     <div class="demo-card">
       <div class="card-header">
@@ -141,12 +122,8 @@
       <p>Performance metric examples</p>
       <a href="https://your-live-demo.com/analytics" class="btn-demo" target="_blank">Live Demo</a>
     </div>
-
   </div>
 </section>
-
-</body>
-</html>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -163,7 +140,5 @@
     observer.observe(el);
   });
 </script>
-
-
 
 {% endblock %}

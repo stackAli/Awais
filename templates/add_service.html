@@ -1,0 +1,26 @@
+<h2>{% if service %}Edit{% else %}Add{% endif %} Service</h2>
+
+<form method="post">
+  <label>Tier:</label>
+  <input type="number" name="tier" value="{{ service.tier if service else '' }}" required><br>
+
+  <label>Title:</label>
+  <input type="text" name="title" value="{{ service.title if service else '' }}" required><br>
+
+  <label>Features (one per line):</label><br>
+  <textarea name="features" rows="5">{{ service.features if service else '' }}</textarea><br>
+
+  <label>Impact (one per line):</label><br>
+  <textarea name="impact" rows="5">{{ service.impact if service else '' }}</textarea><br>
+
+  <label>Implementation:</label>
+  <input type="text" name="implementation" value="{{ service.implementation if service else '' }}"><br>
+
+  <label>Investment:</label>
+  <input type="text" name="investment" value="{{ service.investment if service else '' }}"><br>
+
+  <label><input type="checkbox" name="highlight" {% if service and service.highlight %}checked{% endif %}> Highlight</label><br>
+  <label><input type="checkbox" name="premium" {% if service and service.premium %}checked{% endif %}> Premium</label><br>
+
+  <button type="submit">Save</button>
+</form>

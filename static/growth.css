@@ -37,25 +37,29 @@ h1, h2, h3 {
 /* HERO */
 /* ===================== */
 .hero {
-  background: linear-gradient(145deg, rgb(154, 152, 152), #0f0d0d);
-  color: #eee;
-  padding: 4rem 2rem;
-  text-align: center;
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, #100f0f, #ebeae8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 700;
-  color: #d4af37;
+  color: #957f04;
 }
 
 .hero h1 span {
-  color: #ccc;
+  color: #fcfbfb;
 }
 
 .hero p {
   font-size: 1.3rem;
-  color: #bbb;
+  color: #fcfbfb;
   margin-top: 1rem;
 }
 
@@ -75,9 +79,10 @@ h1, h2, h3 {
   position: absolute;
   top: 0; bottom: 0;
   left: 50%;
-  width: 2px;
+  width: 3px;
   background: #8e8d8d;
   transform: translateX(-50%);
+  margin-top: 50px;
 }
 
 .service-stack {
@@ -106,15 +111,15 @@ h1, h2, h3 {
 }
 /* Odd (left side) */
 .service-card:nth-child(odd) {
-  margin-right: auto;
-  transform: translateX(-80px);
+  margin-left: 20px;
+  transform: translateX(10%);
   text-align: left;
 }
 
 /* Even (right side) */
 .service-card:nth-child(even) {
-  margin-left: auto;
-  transform: translateX(80px);
+  margin-left: 640px;
+  transform: translateX(10%);
   text-align: left;
 }
 

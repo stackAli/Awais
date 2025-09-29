@@ -63,7 +63,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
             <li><a class="dropdown-item {% if page == 'Success Stories' %}active{% endif %}" href="/successstories">Success Stories</a></li>
-            <li><a class="dropdown-item {% if page == 'Admin' %}active{% endif %}" href="/admin">Admin</a></li>
+            <li>
+              <a class="dropdown-item {% if page == 'Admin' %}active{% endif %}" href="{{ url_for('services.admin_services') }}">
+                Admin
+              </a>
+            </li>
+
          </ul>
 </li>
 
