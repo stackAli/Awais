@@ -11,6 +11,7 @@
       <th>Challenge</th>
       <th>Solution</th>
       <th>Results</th>
+      <th>Media</th>
       <th>Actions</th>
     </tr>
     <tr>
@@ -19,6 +20,19 @@
       <td>{{ case_study.challenge[:40] }}...</td>
       <td>{{ case_study.solution[:40] }}...</td>
       <td>{{ case_study.results[:40] }}...</td>
+      <td>
+        {% if case_study.image_url %}
+          <img src="{{ url_for('static', filename='uploads/' ~ case_study.image_url) }}" 
+               alt="{{ case_study.title }}" 
+               style="width:100px; height:auto; border-radius:8px;">
+        {% elif case_study.lottie_url %}
+          <dotlottie-wc src="{{ case_study.lottie_url }}" 
+                        style="width:100px; height:100px;" autoplay loop>
+          </dotlottie-wc>
+        {% else %}
+          <span>No media</span>
+        {% endif %}
+      </td>
       <td>
         <a href="{{ url_for('casestudies.edit_success_story', id=case_study.id) }}">Edit</a>
       </td>

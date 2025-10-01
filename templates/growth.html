@@ -4,16 +4,23 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='growth.css') }}">
 
 <!-- SECTION 1 HERO -->
-<section class="hero" style="padding-bottom: 2rem; position: relative; overflow: hidden;">
+<section class="hero" style="padding-bottom: 2rem; position: relative; overflow: hidden; text-align: center">
   <!-- Particles Background -->
   <div id="tsparticles"></div>
 
   <div class="hero-content" style="position: relative; z-index: 2;">
-    <h1>Complete <span>AI Powered</span> Growth Systems</h1>
-    <p>From first contact to final sale - we automate every step of your customer journey</p>
+    <h1>AI Automation That Pays For Itself</h1>
+    <p>Stop losing leads to slow response times. Our AI solutions work 24/7 so you don't have to.</p>
   </div>
 </section>
-
+<!-- Intro Paragraph -->
+  <div class="intro-text" style="text-align: center; max-width: 800px; margin: 70px auto 60px; font-size: 1.2rem; line-height: 1.6; color: #444;">
+    <p>
+      We specialize in practical AI automation that solves real business problems - not sci-fi promises. 
+      Every solution is custom-built for your business, implemented in days (not months), and starts generating ROI immediately. 
+      No coding required. No complex setup. Just more leads, happier customers, and time back in your day.
+    </p>
+  </div>
 <!-- tsParticles CDN -->
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 <script>
@@ -40,18 +47,27 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <!-- SECTION 2 SERVICE ARCHITECTURE -->
- 
 <section class="services">
   <h2 class="section-title" style="font-weight: bold; text-align: center; margin: 40px 0; color: #957f04;">
     Service Architecture
   </h2>
 
-  <div class="service-grid" style="margin-top: 300px;">
+  <div class="service-grid" style="margin-top: 100px;">
     {% for service in services %}
     <div class="service-card 
                 {% if service.highlight %}highlight{% endif %} 
-                {% if service.premium %}premium{% endif %}">
-      
+                {% if service.premium %}premium{% endif %}"
+         style="position: relative;">
+
+      <!-- Numbering Badge -->
+      <div class="card-number" 
+           style="position: absolute; top: -10px; left: -10px; 
+                  background: #957f04; color: white; 
+                  font-weight: bold; padding: 10px 19px; 
+                  border-radius: 50%;">
+        {{ loop.index }}
+      </div>
+
       <h3>{{ service.title }}</h3>
 
       <!-- Features -->
@@ -74,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
         Investment: {{ service.investment }}
       </p>
 
-      <a href="#" class="btn">TALK TO OUR AI RECEPTIONIST NOW</a>
+      <a href="#" class="btn" style="background-color: #957f04; color: white;">TALK TO OUR AI RECEPTIONIST NOW</a>
     </div>
     {% endfor %}
   </div>
@@ -82,9 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- SECTION 3 INTERACTIVE VAPI INTEGRATION -->
 <section class="integration">
-  <h2 class="section-title" style="text-align:center; margin:40px 0; color:#222;">
-    Interactive VAPI Integration
-  </h2>
+  
 
   <div class="demo-grid">
     <!-- Demo 1: AI Receptionist -->
@@ -124,7 +138,22 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
   </div>
 </section>
+<style>
+  /* INTEGRATION DEMO GRID */
+.demo-grid {
+  display: flex;
+  justify-content: center;   /* center them horizontally */
+  align-items: stretch;
+  gap: 2rem;                 /* spacing between cards */
+  flex-wrap: wrap;           /* allow wrapping on smaller screens */
+}
 
+.demo-card {
+  flex: 1 1 300px;           /* responsive width */
+  max-width: 350px;
+}
+
+</style>
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

@@ -41,7 +41,7 @@ h1, h2, h3 {
   height: 60vh;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(to right, #100f0f, #ebeae8);
+  background: linear-gradient(to right, #100f0f, #686767);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@ h1, h2, h3 {
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 700;
-  color: #957f04;
+  color: #e0e30e;
 }
 
 .hero h1 span {
@@ -88,27 +88,33 @@ h1, h2, h3 {
 .service-stack {
   display: flex;
   flex-direction: column;
-  gap: -15rem;
-  max-width: 100%; /* full width */
+  align-items: center; /* center cards horizontally */
+  gap: 4rem; /* spacing between cards */
+  max-width: 1100px;  /* keeps layout neat on large screens */
   margin: 0 auto;
   position: relative;
   padding: 0 2rem;
 }
 
-/* Base card style */
 .service-card {
   background-color: #1e1e1e;
   border: 1px solid #444;
   border-radius: 12px;
   padding: 2rem;
-  max-width: 480px;
-  opacity: 0; /* hidden for animation */
+  width: 100%;
+  max-width: 480px; /* card width fixed */
+  opacity: 0;
   transition: all 0.8s ease;
-  margin-top: -15rem;
 }
-.abc{
-    margin-top: 50px;
+
+/* Remove forced margins */
+.service-card:nth-child(odd),
+.service-card:nth-child(even) {
+  margin-left: 0;
+  text-align: left;
 }
+
+
 /* Odd (left side) */
 .service-card:nth-child(odd) {
   margin-left: 20px;
@@ -167,7 +173,7 @@ h1, h2, h3 {
   margin-top: 1.5rem;
   padding: 0.9rem 1.7rem;
   background: #957f04;
-  color: #111;
+  color: #957f04;
   font-weight: bold;
   border-radius: 6px;
   text-decoration: none;
@@ -183,7 +189,7 @@ h1, h2, h3 {
 /* ===================== */
 .integration {
   padding: 4rem 2rem;
-  background: rgb(245, 241, 241); /* black background */
+  background: rgb(245, 241, 241);
   text-align: center;
 }
 
@@ -194,19 +200,20 @@ h1, h2, h3 {
   color: #957f04; /* gold */
 }
 
+/* Demo Grid */
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(1, 3fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
   gap: 2rem;
-  max-width: 520px;
+  max-width: 1200px; /* centers the grid */
   margin: 0 auto;
 }
 
 .demo-card {
-  background: #2b2b2b; /* dark grey */
+  background: #2b2b2b;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15); /* subtle gold glow */
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -225,7 +232,7 @@ h1, h2, h3 {
 
 .card-icon {
   font-size: 28px;
-  color: #957f04; /* gold */
+  color: #957f04;
 }
 
 .demo-card h3 {
@@ -236,7 +243,7 @@ h1, h2, h3 {
 }
 
 .demo-card p {
-  color: #ccc; /* light grey text */
+  color: #ccc;
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
 }
@@ -257,6 +264,22 @@ h1, h2, h3 {
   background-color: #e6b800;
   color: #000;
 }
+
+/* ===================== */
+/* RESPONSIVE ADJUSTMENTS */
+/* ===================== */
+@media (max-width: 992px) {
+  .demo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .demo-grid {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+  }
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 992px) {

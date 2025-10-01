@@ -26,3 +26,13 @@ class CaseStudy(db.Model):
     lottie_url = db.Column(db.String(500))
     image_url = db.Column(db.String(500))  # NEW
     button_url = db.Column(db.String(500))
+
+
+class ContactInfo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(50), nullable=False)
+    hours = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return f"<ContactInfo {self.email}>"

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero" style="padding-bottom: 2rem; position: relative; overflow: hidden; background: linear-gradient(to right, #100f0f, #686767); height: 60vh;">
+  <!-- Particles Background -->
+  <div id="tsparticles" style="position:absolute; top:0; left:0; width:100%; height:100%;"></div>
+
+  <div class="hero-content" style="position: relative; z-index: 2; text-align: center; padding: 100px 20px;">
+    <h1 style="font-size: 2.8rem; font-weight: bold; color: #957f04; margin-bottom: 20px;">
+      Let's Build Your Custom AI Solution
+    </h1>
+    <p style="font-size: 1.2rem; color: white; max-width: 700px; margin: 0 auto;">
+      Our AI consultant will understand your business needs, identify automation opportunities, 
+      and book a strategy call if there's a fit. Takes 5 minutes. Zero pressure.
+    </p>
+  </div>
+</section>
+
+<!-- tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    fpsLimit: 120,
+    particles: {
+      number: { value: 60, density: { enable: true, area: 800 } },
+      color: { value: "#FFD700" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: { min: 1, max: 4 } },
+      links: { enable: true, distance: 150, color: "#FFD700", opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 1, outModes: "bounce" }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+      modes: { repulse: { distance: 200, duration: 0.4 } }
+    },
+    detectRetina: true
+  });
+});
+</script>
+
+
+<!-- HOW THIS WORKS -->
+<section class="how-it-works" style="margin: 60px auto; max-width: 1000px;">
+  <h2 style="text-align: center; font-weight: bold; color: #957f04; margin-bottom: 40px;">
+    How This Works:
+  </h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; text-align: center;">
+    <div>
+      <div style="font-size: 2rem; margin-bottom: 10px;">🤖</div>
+      <p><strong>1. Chat with our AI</strong><br>Quick conversation about your business challenges (3-5 minutes)</p>
+    </div>
+    <div>
+      <div style="font-size: 2rem; margin-bottom: 10px;">⚡</div>
+      <p><strong>2. Get instant insights</strong><br>AI identifies where you're losing leads and revenue</p>
+    </div>
+    <div>
+      <div style="font-size: 2rem; margin-bottom: 10px;">📅</div>
+      <p><strong>3. Book a strategy call (optional)</strong><br>Schedule time with our team via a conversation with METAMAX AI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section class="expectations" style="margin: 60px auto; max-width: 800px; text-align: center;">
+  <h2 style="color: #957f04; margin-bottom: 20px;">What to expect in your chat:</h2>
+  <ul style="list-style: none; padding: 0; font-size: 1.1rem; line-height: 1.8;">
+    <li>✓ What's your biggest lead generation challenge?</li>
+    <li>✓ Where are leads slipping through the cracks?</li>
+    <li>✓ What does your current follow-up process look like?</li>
+    <li>✓ What would success look like for your business?</li>
+  </ul>
+</section>
+
+<!-- CHAT BOX DEMO -->
+<section class="chat-demo" style="margin: 80px auto; text-align: center; max-width: 900px;">
+  <h2 style="color: #957f04; margin-bottom: 20px;">Talk to our AI</h2>
+  <div style="border: 2px solid #ddd; border-radius: 12px; padding: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <!-- Replace with your actual chat widget / iframe -->
+    <p style="margin-bottom: 20px;">[AI Chatbox Placeholder]</p>
+    <button style="padding: 12px 20px; background: #957f04; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+      Talk to AI
+    </button>
+  </div>
+</section>
+
+<!-- FALLBACK CONTACT -->
+<section class="fallback-contact" style="margin: 80px auto; max-width: 800px; text-align: center;">
+  <h2 style="color: #957f04; margin-bottom: 20px;">Prefer Human Contact?</h2>
+  <p>We totally get it. Reach us directly:</p>
+  <p>📧 Email: <strong>{{ contact_email }}</strong></p>
+  <p>📞 Phone: <strong>{{ contact_phone }}</strong></p>
+  <p>⏰ Hours: <strong>{{ contact_hours }}</strong></p>
+</section>
+
+<!-- FAQ -->
+<section class="faq" style="margin: 80px auto; max-width: 900px;">
+  <h2 style="text-align: center; color: #957f04; margin-bottom: 40px;">Quick Questions:</h2>
+  <div style="line-height: 1.8; font-size: 1.1rem;">
+    <p><strong>Q:</strong> Is this really AI or just a fancy form?<br>
+       <strong>A:</strong> It's real conversational AI that understands context and can have natural back-and-forth discussions about your business needs.</p>
+
+    <p><strong>Q:</strong> Will I get spammed after this?<br>
+       <strong>A:</strong> Nope. We only follow up if you explicitly book a call or request more info.</p>
+
+    <p><strong>Q:</strong> What if AI can't help my specific situation?<br>
+       <strong>A:</strong> The AI will recognize when human expertise is needed and connect you directly with our team.</p>
+
+    <p><strong>Q:</strong> How long does the conversation take?<br>
+       <strong>A:</strong> Most chats take 3-5 minutes. You can also save and come back later.</p>
+  </div>
+</section>
+
+{% endblock %}

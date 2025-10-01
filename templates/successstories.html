@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function() {
           <p class="mb-0">"METAMAX didn't just give us an AI receptionist – they gave us our lives back."</p>
           <footer class="blockquote-footer" style="margin-top: 5px;">Dr. Sarah Mitchell, Family Clinic</footer>
         </blockquote>
-        <a href="/live-demo" class="btn btn-golden mt-3" style="background-color: #957f04;">View Live Demo</a>
+       
       </div>
     </div>
 
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <p><strong>Challenge:</strong> Seasonal demand fluctuations and missed emergency calls</p>
         <p><strong>Solution:</strong> 24/7 AI dispatcher with urgency assessment</p>
         <p><strong>Results:</strong> 200% increase in emergency bookings, 75% revenue growth</p>
-        <a href="/live-demo" class="btn btn-golden mt-3" style="background-color: #957f04;">View Live Demo</a>
+       
       </div>
     </div>
 
@@ -120,41 +120,47 @@ document.addEventListener("DOMContentLoaded", function() {
         <p><strong>Challenge:</strong> High-value consultations lost to after-hours inquiries</p>
         <p><strong>Solution:</strong> AI legal intake system with qualification protocols</p>
         <p><strong>Results:</strong> $150K additional quarterly revenue, 90% consultation booking rate</p>
-        <a href="/live-demo" class="btn btn-golden mt-3" style="background-color: #957f04;">View Live Demo</a>
+        
       </div>
     </div>
 
-<!-- Case Study 4 (Dynamic from Admin) -->
 <!-- Dynamic Case Studies from Admin -->
 {% for cs in case_studies %}
 <div class="row align-items-center mb-5 {% if loop.index is odd %}flex-md-row-reverse{% endif %}">
   <div class="col-md-6 lottie-container">
+
     {% if cs.lottie_url %}
+      <!-- Show Lottie animation if URL is given -->
       <dotlottie-wc 
         src="{{ cs.lottie_url }}" 
         style="width:100%; max-width:500px; height:400px;" autoplay loop>
       </dotlottie-wc>
+
     {% elif cs.image_url %}
-      <img src="{{ cs.image_url }}" 
+      <!-- Show uploaded image if available -->
+      <img src="{{ url_for('static', filename='uploads/' ~ cs.image_url) }}" 
            alt="{{ cs.title }}" 
-           style="width:100%; max-width:500px; height:auto; border-radius:12px;">
+           style="width:50%; max-width:500px; height:auto; border-radius:12px;">
+
+    {% else %}
+      <!-- Fallback if no image or animation -->
+      <div style="width:100%; max-width:500px; height:400px; display:flex; align-items:center; justify-content:center; background:#f8f9fa; border-radius:12px;">
+        <span style="color:#888;">No media available</span>
+      </div>
     {% endif %}
+
   </div>
+
   <div class="col-md-6">
     <h3 class="fw-bold">{{ cs.title }}</h3>
     {% if cs.challenge %}<p><strong>Challenge:</strong> {{ cs.challenge }}</p>{% endif %}
     {% if cs.solution %}<p><strong>Solution:</strong> {{ cs.solution }}</p>{% endif %}
     {% if cs.results %}<p><strong>Results:</strong> {{ cs.results }}</p>{% endif %}
-    {% if cs.button_url %}
-      <a href="{{ cs.button_url }}" 
-         class="btn btn-golden mt-3" 
-         style="background-color: #957f04;">
-        View Live Demo
-      </a>
-    {% endif %}
   </div>
 </div>
 {% endfor %}
+
+
 
 
 

@@ -48,3 +48,16 @@
 {% else %}
   <p>No success stories yet.</p>
 {% endif %}
+
+<form method="POST" action="{{ url_for('services.update_contact') }}">
+  <label>Email:</label>
+  <input type="text" name="contact_email" required>
+  <br>
+  <label>Phone:</label>
+  <input type="text" name="contact_phone" required>
+  <br>
+  <label>Hours:</label>
+  <input type="text" name="contact_hours" required>
+  <br>
+  <button type="submit">Save</button>
+</form>

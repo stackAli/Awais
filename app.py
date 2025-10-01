@@ -1,5 +1,9 @@
-from flask import Flask, request, jsonify, render_template, Blueprint, redirect, url_for, flash
-from models import db, Service, CaseStudy   # <-- import CaseStudy too
+import os
+from flask import Flask, request, jsonify, render_template, Blueprint, redirect, url_for, flash, session
+from werkzeug.utils import secure_filename
+from werkzeug.security import check_password_hash, generate_password_hash
+from functools import wraps
+from models import db, Service, CaseStudy, ContactInfo   # <-- added ContactInfo model
 
 # -------------------------
 # App setup
@@ -8,7 +12,55 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///site.db"
 app.config["SECRET_KEY"] = "your_secret_key"
 
-db.init_app(app)   # initialize db with this app
+# Upload settings
+UPLOAD_FOLDER = os.path.join("static", "uploads")
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+db.init_app(app)
+
+# -------------------------
+# Admin Auth (one user only)
+# -------------------------
+ADMIN_USERNAME = "admin"
+# store hashed password instead of plain text
+ADMIN_PASSWORD_HASH = generate_password_hash("admin123")  # change your password here!
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get("logged_in"):
+            flash("Please log in to access admin.", "warning")
+            return redirect(url_for("login"))
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if username == ADMIN_USERNAME and check_password_hash(ADMIN_PASSWORD_HASH, password):
+            session["logged_in"] = True
+            flash("Logged in successfully!", "success")
+            return redirect(url_for("services.admin_services"))
+        else:
+            flash("Invalid credentials", "danger")
+    return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    session.pop("logged_in", None)
+    flash("Logged out successfully!", "info")
+    return redirect(url_for("login"))
+
+# -------------------------
+# Helpers
+# -------------------------
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # -------------------------
 # Services Blueprint
@@ -16,12 +68,15 @@ db.init_app(app)   # initialize db with this app
 services_bp = Blueprint("services", __name__)
 
 @services_bp.route("/admin/services")
+@login_required
 def admin_services():
     services = Service.query.order_by(Service.tier).all()
     case_studies = CaseStudy.query.all()
-    return render_template("admin_services.html", services=services, case_studies=case_studies)
+    contact = ContactInfo.query.first()
+    return render_template("admin_services.html", services=services, case_studies=case_studies, contact=contact)
 
 @services_bp.route("/admin/services/add", methods=["GET", "POST"])
+@login_required
 def add_service():
     if request.method == "POST":
         service = Service(
@@ -41,6 +96,7 @@ def add_service():
     return render_template("add_service.html")
 
 @services_bp.route("/admin/services/edit/<int:id>", methods=["GET", "POST"])
+@login_required
 def edit_service(id):
     service = Service.query.get_or_404(id)
     if request.method == "POST":
@@ -58,6 +114,7 @@ def edit_service(id):
     return render_template("edit_service.html", service=service)
 
 @services_bp.route("/admin/services/delete/<int:id>")
+@login_required
 def delete_service(id):
     service = Service.query.get_or_404(id)
     db.session.delete(service)
@@ -71,29 +128,44 @@ def delete_service(id):
 casestudies_bp = Blueprint("casestudies", __name__)
 
 @casestudies_bp.route("/admin/casestudy")
+@login_required
 def admin_case_study():
-    return redirect(url_for("services.admin_services"))  # always use the same page
+    return redirect(url_for("services.admin_services"))
 
 @casestudies_bp.route("/admin/casestudy/add", methods=["GET", "POST"])
+@login_required
 def add_success_story():
     if request.method == "POST":
+        image_file = request.files.get("image")
+        filename = None
+
+        if image_file and allowed_file(image_file.filename):
+            filename = secure_filename(image_file.filename)
+            filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            image_file.save(filepath)
+
         case_study = CaseStudy(
             title=request.form["title"],
             challenge=request.form["challenge"],
             solution=request.form["solution"],
             results=request.form["results"],
             lottie_url=request.form["lottie_url"],
-            button_url=request.form["button_url"]
+            button_url=request.form["button_url"],
+            image_url=filename
         )
+
         db.session.add(case_study)
         db.session.commit()
         flash("Success story added successfully!", "success")
         return redirect(url_for("services.admin_services"))
+
     return render_template("add_case_study.html")
 
 @casestudies_bp.route("/admin/casestudy/edit/<int:id>", methods=["GET", "POST"])
+@login_required
 def edit_success_story(id):
     case_study = CaseStudy.query.get_or_404(id)
+
     if request.method == "POST":
         case_study.title = request.form["title"]
         case_study.challenge = request.form["challenge"]
@@ -102,6 +174,13 @@ def edit_success_story(id):
         case_study.lottie_url = request.form["lottie_url"]
         case_study.button_url = request.form["button_url"]
 
+        image_file = request.files.get("image")
+        if image_file and allowed_file(image_file.filename):
+            filename = secure_filename(image_file.filename)
+            filepath = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            image_file.save(filepath)
+            case_study.image_url = f"/static/uploads/{filename}"
+
         db.session.commit()
         flash("Success story updated successfully!", "success")
         return redirect(url_for("services.admin_services"))
@@ -109,11 +188,32 @@ def edit_success_story(id):
     return render_template("edit_case_study.html", case_study=case_study)
 
 @casestudies_bp.route("/admin/casestudy/delete/<int:id>")
+@login_required
 def delete_success_story(id):
     case_study = CaseStudy.query.get_or_404(id)
     db.session.delete(case_study)
     db.session.commit()
     flash("Success story deleted successfully!", "success")
+    return redirect(url_for("services.admin_services"))
+
+# -------------------------
+# Contact Info (Admin only)
+# -------------------------
+@services_bp.route("/admin/contact/update", methods=["POST"])
+@login_required
+def update_contact():
+    contact = ContactInfo.query.first()
+    if not contact:
+        contact = ContactInfo(email="", phone="", hours="")
+        db.session.add(contact)
+        db.session.commit()
+
+    contact.email = request.form.get("contact_email")
+    contact.phone = request.form.get("contact_phone")
+    contact.hours = request.form.get("contact_hours")
+    db.session.commit()
+
+    flash("Contact info updated successfully!", "success")
     return redirect(url_for("services.admin_services"))
 
 # -------------------------
@@ -134,9 +234,20 @@ def growth_systems():
     services = Service.query.order_by(Service.tier).all()
     return render_template("growth.html", page="Growth Systems", services=services)
 
+@app.route("/InteractiveDemo")
+def interactive_demo():
+    contact = ContactInfo.query.first()
+    return render_template(
+        "interactive_demo.html",
+        page="Interactive Demo",
+        contact_email=contact.email if contact else "hello@yourdomain.com",
+        contact_phone=contact.phone if contact else "+1234567890",
+        contact_hours=contact.hours if contact else "Mon-Fri, 9AM-6PM EST"
+    )
+
 @app.route("/successstories")
 def successstories():
-    case_studies = CaseStudy.query.all()  # show all success stories
+    case_studies = CaseStudy.query.all()
     return render_template(
         "successstories.html",
         page="Success Stories",
