@@ -101,31 +101,26 @@ h1, h2, h3 {
   border: 1px solid #444;
   border-radius: 12px;
   padding: 2rem;
-  width: 100%;
-  max-width: 480px; /* card width fixed */
+  width: 40%;        /* each card takes ~40% of screen */
+  max-width: 480px;  /* prevents overexpansion */
   opacity: 0;
   transition: all 0.8s ease;
+  position: relative;
 }
 
-/* Remove forced margins */
-.service-card:nth-child(odd),
-.service-card:nth-child(even) {
-  margin-left: 0;
-  text-align: left;
-}
-
-
-/* Odd (left side) */
+/* Odd (left half, centered) */
 .service-card:nth-child(odd) {
-  margin-left: 20px;
-  transform: translateX(10%);
+  margin-left: 2%;             /* give space from edge */
+  margin-right: auto;
+  transform: translateX(-10%); /* animate from left */
   text-align: left;
 }
 
-/* Even (right side) */
+/* Even (right half, centered) */
 .service-card:nth-child(even) {
-  margin-left: 640px;
-  transform: translateX(10%);
+  margin-right: 2%;            /* give space from edge */
+  margin-left: auto;
+  transform: translateX(10%);  /* animate from right */
   text-align: left;
 }
 
@@ -133,6 +128,42 @@ h1, h2, h3 {
 .service-card.visible {
   opacity: 1;
   transform: translateX(0);
+}
+.service-card {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;        /* default for mobile: full width */
+  max-width: 500px;
+  opacity: 0;
+  transition: all 0.8s ease;
+  position: relative;
+  margin: 0 auto;     /* center on small screens */
+}
+
+/* Large screens (PC, >1200px) */
+@media (min-width: 1500px) {
+  .service-card {
+    width: 40%;        /* each card ~40% of screen */
+    max-width: 480px;
+  }
+
+  /* Odd (left half, centered) */
+  .service-card:nth-child(odd) {
+    margin-left: 15%;   /* centers in left half */
+    margin-right: auto;
+    transform: translateX(-10%);
+    text-align: left;
+  }
+
+  /* Even (right half, centered) */
+  .service-card:nth-child(even) {
+    margin-right: 15%;  /* centers in right half */
+    margin-left: auto;
+    transform: translateX(10%);
+    text-align: left;
+  }
 }
 
 .service-card h3 {
