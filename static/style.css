@@ -432,7 +432,7 @@ body {
 
 /* Individual AI Card */
 .ai-section .ai-card {
-    background: #262727; /* dark blue card */
+    background: #343535; /* dark blue card */
     border-radius: 12px;
     padding: 2rem 1.5rem;
     flex: 1 1 22%;
@@ -459,7 +459,7 @@ body {
     width: 40px;
     height: 40px;
     background: #957f04;
-    color: #0d0d0d;
+    color: #373636;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -478,15 +478,21 @@ body {
     font-size: 18px;
     font-weight: 600;
     margin: 1rem 0 0.5rem 0;
-    color: black;
+    color: white;
+}
+.ai-card p,
+.ai-card p strong {
+  color: #fff !important;
 }
 
 .ai-section p {
     font-size: 14px;
     margin: 0.3rem 0 1rem 0;
-    color: #957f04 !important;
+    color: white !important;
 }
-
+.ai-section{
+  color: white;
+}
 /* Learn More Button */
 .ai-section .btn-learn {
     display: inline-block;

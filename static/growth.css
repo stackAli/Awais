@@ -50,7 +50,7 @@ h1, h2, h3 {
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 700;
-  color: #e0e30e;
+  color: #f7f8b1;
 }
 
 .hero h1 span {
@@ -168,7 +168,7 @@ h1, h2, h3 {
 
 .service-card h3 {
   
-  color: #957f04;
+  color: #f7f8b1;
   margin-bottom: 1rem;
  
 }
@@ -203,8 +203,8 @@ h1, h2, h3 {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.9rem 1.7rem;
-  background: #957f04;
-  color: #957f04;
+  background: #f7f8b1;
+  color: #f7f8b1;
   font-weight: bold;
   border-radius: 6px;
   text-decoration: none;
@@ -212,7 +212,7 @@ h1, h2, h3 {
 }
 
 .btn:hover {
-  background: #957f04;
+  background: #f7f8b1;
 }
 
 /* ===================== */
@@ -228,7 +228,7 @@ h1, h2, h3 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2.5rem;
-  color: #957f04; /* gold */
+  color: #f7f8b1; /* gold */
 }
 
 /* Demo Grid */
@@ -263,14 +263,14 @@ h1, h2, h3 {
 
 .card-icon {
   font-size: 28px;
-  color: #957f04;
+  color: #f7f8b1;
 }
 
 .demo-card h3 {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #957f04;
+  color: #f7f8b1;
 }
 
 .demo-card p {
@@ -283,7 +283,7 @@ h1, h2, h3 {
   display: inline-block;
   padding: 10px 20px;
   margin-top: 12px;
-  background-color: #FFD700;
+  background-color: #f7f8b1;
   color: #000;
   text-decoration: none;
   border-radius: 6px;
@@ -292,7 +292,7 @@ h1, h2, h3 {
 }
 
 .btn-demo:hover {
-  background-color: #e6b800;
+  background-color: #f7f8b1;
   color: #000;
 }
 
