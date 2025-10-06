@@ -54,6 +54,7 @@
         <li class="nav-item">
            <a class="nav-link {% if page == 'Get Started' %}active{% endif %}" href="/contactus">Get Started</a>
        </li>
+       
 
         <!-- Dropdown -->
         <li class="nav-item dropdown" >
@@ -67,12 +68,15 @@
               <a class="dropdown-item {% if page == 'Admin' %}active{% endif %}" href="{{ url_for('services.admin_services') }}">
                 Admin
               </a>
+              <li class="nav-item">
+                  <a class="nav-link {% if page == 'Make Website' %}active{% endif %}" href="/make-website">Web Services</a>
+              </li>
             </li>
 
          </ul>
-</li>
+        </li>
 
-
+        
 
         <!-- Button -->
         <li class="nav-item">

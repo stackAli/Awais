@@ -233,6 +233,9 @@ def home():
 def growth_systems():
     services = Service.query.order_by(Service.tier).all()
     return render_template("growth.html", page="Growth Systems", services=services)
+@app.route("/make-website")
+def make_website():
+    return render_template("make_website.html")
 
 @app.route("/InteractiveDemo")
 def interactive_demo():
