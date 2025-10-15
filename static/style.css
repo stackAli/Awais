@@ -134,7 +134,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) translateY(30px);
   text-align: center;
-  color: black;
+  color: rgb(249, 178, 45);
   opacity: 0;
   z-index: 3;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -164,7 +164,7 @@ body {
 
 /* Risk Reversal Section */
 .risk-reversal-section {
-  background-color: #957f04;
+  background-color: rgb(249, 178, 45),;
   color: black;
   padding: 1.5rem 0;
   text-align: center;
@@ -223,7 +223,7 @@ body {
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: 2px;
-      color: #957f04;
+      color: rgb(249, 178, 45);
       margin-bottom: 2rem;
       text-transform: uppercase;
       opacity: 0;
@@ -276,7 +276,7 @@ body {
       font-size: 1.8rem;
       font-weight: 700;
       margin-bottom: 20px;
-      color: #957f04;
+      color: rgb(249, 178, 45);
       border-left: 4px solid #957f04;
       padding-left: 10px;
       text-transform: uppercase;
@@ -392,14 +392,14 @@ body {
     background: rgba(245, 241, 241);
     padding: 8rem 2rem;
     font-family: 'Montserrat', sans-serif;
-    color: #FFD700; /* gold text for headings and highlights */
-    max-width: 1200px;
+    color: rgb(249, 178, 45) !important; /* gold text for headings and highlights */
     margin: 0 auto;
     position: relative;
     height: 100vh;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.8s ease-out;
+    width: 100%;
 }
 
 /* Active state for scroll */
@@ -416,11 +416,11 @@ body {
     left: 4%;
     width: 90%;
     height: 4px;
-    background: #FFD700; /* subtle gold line */
+    background: rgb(249, 178, 45) !important; /* subtle gold line */
     z-index: 0;
 }
 .ai-section h2{
-  color: #957f04;
+  color: rgb(249, 178, 45) !important;
 }
 /* Cards container styling: horizontal flex */
 .ai-section {
@@ -458,7 +458,7 @@ body {
 .ai-section .card-number {
     width: 40px;
     height: 40px;
-    background: #957f04;
+    background: rgb(249, 178, 45);
     color: #373636;
     border-radius: 50%;
     display: flex;
@@ -478,7 +478,7 @@ body {
     font-size: 18px;
     font-weight: 600;
     margin: 1rem 0 0.5rem 0;
-    color: white;
+    color: rgb(249, 178, 45);
 }
 .ai-card p,
 .ai-card p strong {
@@ -496,7 +496,7 @@ body {
 /* Learn More Button */
 .ai-section .btn-learn {
     display: inline-block;
-    background: #957f04;
+    background: rgb(249, 178, 45);
     color: black !important ;
     padding: 12px 20px;
     border-radius: 8px;
@@ -550,7 +550,7 @@ body {
     font-size: 3rem;
     margin-bottom: 20px;
     font-weight: 700;
-    color: #957f04 !important;
+    color: rgb(249, 178, 45) !important;
 }
 
 /* =============================
@@ -560,14 +560,14 @@ body {
   background: rgb(245, 241, 241);
   padding: 100px 20px;
   font-family: 'Montserrat', sans-serif;
-  color: #957f04;
+  color: rgb(249, 178, 45);
   text-align: center;
 }
 
 .social-proof h2 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #957f04;
+  color: rgb(249, 178, 45);
   margin-bottom: 15px;
   text-transform: uppercase;
 }
@@ -597,7 +597,7 @@ body {
 
 .case-animation {
   flex: 0 0 300px;
-  background: #FFD70020;
+  background: black;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -625,7 +625,7 @@ body {
 .case-content h3 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #957f04;
+  color: rgb(249, 178, 45);
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -708,7 +708,7 @@ body {
   margin-top: 15px;
   padding: 12px 28px;
   border-radius: 30px;
-  background: linear-gradient(90deg, #FFD700, #e6b800);
+  background: rgb(249, 178, 45);
   color: #100f0f;
   font-weight: 700;
   text-decoration: none;
