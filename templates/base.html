@@ -51,8 +51,9 @@
        </li>
         <li class="nav-item">
            <a class="nav-link {% if page == 'Interactive Demo' %}active{% endif %}" href="/InteractiveDemo">Interactive Demo</a>
+        </li>   
         <li class="nav-item">
-           <a class="nav-link {% if page == 'Get Started' %}active{% endif %}" href="/contactus">Get Started</a>
+           <a class="nav-link {% if page == 'Success Stories' %}active{% endif %}" href="/successstories">Success Stories</a>
        </li>
        
 
@@ -63,13 +64,13 @@
             About Us
           </a>
           <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-            <li><a class="dropdown-item {% if page == 'Success Stories' %}active{% endif %}" href="/successstories">Success Stories</a></li>
+            <li><a class="dropdown-item {% if page == 'Get Started' %}active{% endif %}" href="/contactus">Get Started</a></li>
             <li>
               <a class="dropdown-item {% if page == 'Admin' %}active{% endif %}" href="{{ url_for('services.admin_services') }}">
                 Admin
               </a>
-              <li class="nav-item">
-                  <a class="nav-link {% if page == 'Make Website' %}active{% endif %}" href="/make-website">Web Services</a>
+              <li>
+                  <a class="dropdown-item {% if page == 'Make Website' %}active{% endif %}" href="/make-website">Web Services</a>
               </li>
             </li>
 
