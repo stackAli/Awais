@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+      /* ===== GENERAL STYLING ===== */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgba(245, 241, 241);
+    color: black;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+h1, h2, h3 {
+    margin: 0 0 15px 0;
+}
+p, li, label {
+    color: black;
+}
+a {
+    color: rgb(249, 178, 45);
+    text-decoration: none;
+}
+ul {
+    padding-left: 20px;
+}
+button {
+    cursor: pointer;
+    border: none;
+    background-color: #ffb400;
+    color: #1a1a1a;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: rgb(249, 178, 45);
+    transform: scale(1.05);
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #d7d3d3;
+    color: #fff;
+}
+textarea {
+    resize: vertical;
+}
+fieldset {
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #d7d3d3;
+}
+legend {
+    font-weight: bold;
+    color: rgb(249, 178, 45);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: linear-gradient(to right, #100f0f, #686767);
+    text-align: center;
+    padding: 100px 20px;
+    overflow: hidden;
+    height: 60vh;
+}
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: rgb(249, 178, 45);
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInUp 1s forwards;
+}
+.hero p {
+    font-size: 20px;
+    color: #ccc;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s 0.5s forwards;
+}
+
+/* ===== DUAL PATH RESTRUCTURED ===== */
+#dual-path {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 60px 20px;
+}
+#dual-path > div {
+    background-color: #d7d3d3;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+#dual-path > div:nth-child(1) {
+    animation-delay: 0.2s;
+}
+#dual-path > div:nth-child(2) {
+    animation-delay: 0.4s;
+}
+#dual-path h2 {
+    color: rgb(249, 178, 45);
+    margin-bottom: 20px;
+}
+#vapi-demo ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+#vapi-demo button {
+    margin-bottom: 20px;
+}
+
+/* ===== PSYCHOLOGICAL ELEMENTS ===== */
+#psych-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 60px 20px;
+}
+#psych-elements > div {
+    background-color: #d7d3d3;
+    padding: 25px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+#psych-elements > div:hover {
+    transform: translateY(-10px);
+    background-color: #333;
+}
+#psych-elements h3 {
+    color: rgb(249, 178, 45);
+    margin-bottom: 15px;
+}
+
+/* ===== CONTACT INFORMATION (SECTION 4) ===== */
+#contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    background-color: #d7d3d3;
+    padding: 80px 20px;
+}
+#contact-info > div {
+    background-color: #d7d3d3;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#contact-info > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgb(249, 178, 45);
+}
+#contact-info h3 {
+    color: rgb(249, 178, 45);
+    margin-bottom: 15px;
+}
+
+/* ===== CALENDAR SECTION ===== */
+#calendar {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #d7d3d3;
+}
+#calendar h2 {
+    color: rgb(249, 178, 45);
+    margin-bottom: 20px;
+}
+#calendar-widget {
+    background-color: #d7d3d3;
+    display: inline-block;
+    padding: 30px;
+    border-radius: 10px;
+    min-width: 300px;
+    transition: transform 0.3s ease;
+}
+#calendar-widget:hover {
+    transform: scale(1.05);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    #dual-path > div {
+        padding: 30px 15px;
+    }
+    #contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+
+<body>
+
+<!-- HERO SECTION -->
+<!-- SECTION 1 HERO -->
+<section class="hero" style="padding-bottom: 2rem; position: relative; overflow: hidden;">
+  <!-- Particles Background -->
+  <div id="tsparticles"></div>
+
+  <div class="hero-content" style="position: relative; z-index: 2;">
+    <h1>Ready To Transform Your Business</h1>
+    <p>Book your free AI Growth Strategy session and discover your custom transformation roadmap</p>
+  </div>
+</section>
+
+<!-- tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },
+    fpsLimit: 120,
+    particles: {
+      number: { value: 60, density: { enable: true, area: 800 } },
+      color: { value: "#FFD700" },
+      shape: { type: "circle" },
+      opacity: { value: 0.5 },
+      size: { value: { min: 1, max: 4 } },
+      links: { enable: true, distance: 150, color: "#FFD700", opacity: 0.4, width: 1 },
+      move: { enable: true, speed: 1, outModes: "bounce" }
+    },
+    interactivity: {
+      events: { onHover: { enable: true, mode: "repulse" }, resize: true },
+      modes: { repulse: { distance: 200, duration: 0.4 } }
+    },
+    detectRetina: true
+  });
+});
+</script>
+
+<!-- DUAL PATH SECTION -->
+<section id="dual-path">
+    <div id="path1">
+        <h2>See Your AI In Action Right Now</h2>
+        <div id="vapi-demo">
+            <button>TALK TO YOUR FUTURE AI RECEPTIONIST</button>
+            <div id="live-interface">
+                <!-- Live demo widget placeholder -->
+            </div>
+            <ul>
+                <li>Natural conversation flow</li>
+                <li>Appointment scheduling capability</li>
+                <li>Lead qualification demonstration</li>
+                <li>Multi-scenario testing</li>
+                <li>Performance metrics display</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="path2">
+        <h2>Get Your Custom Growth Strategy</h2>
+        <form id="consultation-form">
+            <!-- Step 1 -->
+            <fieldset>
+                <legend>Step 1: Business Profile</legend>
+                <label>Company Name: <input type="text" name="company_name"></label>
+                <label>Industry:
+                    <select name="industry">
+                        <option value="">Select Industry</option>
+                        <option value="tech">Tech</option>
+                        <option value="finance">Finance</option>
+                        <option value="health">Health</option>
+                    </select>
+                </label>
+                <style>
+                  .A1{
+                    display: block;
+                    margin-top: 10px !important; 
+                  }
+                </style>
+                <label class="A1">Annual Revenue Range: <input type="range" name="revenue" min="0" max="1000000"></label>
+                <label class="A1">Current Team Size: <input type="number" name="team_size"></label>
+                <label>Primary Growth Challenges:</label>
+                <input type="checkbox" name="challenges" value="marketing" > Marketing
+                <input type="checkbox" name="challenges" value="sales"> Sales
+                <input type="checkbox" name="challenges" value="operations"> Operations
+            </fieldset>
+            <!-- Step 2 -->
+            <fieldset>
+                <legend>Step 2: Current Situation</legend>
+                <label>Monthly Leads: <input type="range" name="leads" min="0" max="1000"></label>
+                <label>Percentage of Calls Missed: <input type="range" name="missed_calls" min="0" max="100"></label>
+                <label>Revenue Lost to Competitors: <input type="number" name="revenue_lost"></label>
+                <label>Biggest Operational Bottleneck: <textarea name="bottleneck"></textarea></label>
+            </fieldset>
+            <!-- Step 3 -->
+            <fieldset>
+                <legend>Step 3: Growth Goals</legend>
+                <label>12-Month Goals: <textarea name="goals_12months"></textarea></label>
+                <label>Impact of 2x Growth: <textarea name="growth_impact"></textarea></label>
+                <label>Scaling Challenges:</label>
+                <input type="checkbox" name="scaling_challenges" value="resources"> Resources
+                <input type="checkbox" name="scaling_challenges" value="strategy"> Strategy
+                <input type="checkbox" name="scaling_challenges" value="team"> Team
+                <label>Investment in Results: <input type="range" name="investment" min="0" max="100000"></label>
+            </fieldset>
+            <!-- Step 4 -->
+            <fieldset>
+                <legend>Step 4: Consultation Booking</legend>
+                <label>Preferred Time: <input type="datetime-local" name="preferred_time"></label>
+                <label>Contact Information:
+                    <input type="text" name="name" placeholder="Your Name">
+                    <input type="email" name="email" placeholder="Your Email">
+                    <input type="tel" name="phone" placeholder="Your Phone">
+                </label>
+                <label>Specific Questions or Concerns: <textarea name="questions"></textarea></label>
+                <label>Urgency Level:
+                    <input type="radio" name="urgency" value="low"> Low
+                    <input type="radio" name="urgency" value="medium"> Medium
+                    <input type="radio" name="urgency" value="high"> High
+                </label>
+                <button type="submit">Book Consultation</button>
+            </fieldset>
+        </form>
+    </div>
+</section>
+
+<!-- PSYCHOLOGICAL ELEMENTS -->
+<section id="psych-elements">
+    <div id="trust">
+        <h3>Trust & Security</h3>
+        <ul>
+            <li>SSL security badges</li>
+            <li>Industry certifications</li>
+            <li>Privacy policy assurance</li>
+            <li>GDPR compliance statement</li>
+            <li>Client confidentiality guarantee</li>
+        </ul>
+    </div>
+    <div id="social-proof">
+        <h3>Social Proof</h3>
+        <ul>
+            <li>Sarah from Melbourne just booked her demo</li>
+            <li>147 businesses transformed this month</li>
+            <li>Next available slot: Tomorrow 2:30 PM</li>
+        </ul>
+    </div>
+    <div id="urgency">
+        <h3>Urgency & Scarcity</h3>
+        <ul>
+            <li>Only 8 implementation spots available this month</li>
+            <li>Free strategy sessions booking quickly</li>
+            <li>Premium support slots limited</li>
+        </ul>
+    </div>
+    <div id="risk-reversal">
+        <h3>Risk Reversal</h3>
+        <ul>
+            <li>No obligation consultation</li>
+            <li>Your information stays confidential</li>
+            <li>Cancel anytime policy</li>
+            <li>100% satisfaction guaranteed</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section id="contact-info">
+    <div>
+        <h3>Primary Contact</h3>
+        <p>Phone: 0420723854</p>
+        <p>Email: awaistouseef@hotmail.com</p>
+        <p>Business hours: 24/7 AI-powered</p>
+    </div>
+    <div>
+        <h3>Office Address</h3>
+        <p>244 BlackBurn Road, Glenwaverly, 3150 Melbourne</p>
+        <p>Meeting by appointment only</p>
+        <p>Virtual consultations available globally</p>
+    </div>
+    <div>
+        <h3>Response Time Guarantee</h3>
+        <ul>
+            <li>Phone calls answered within 3 rings</li>
+            <li>Emails responded to within 1 hour</li>
+            <li>Demo requests processed immediately</li>
+            <li>Consultations scheduled within 24 hours</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar">
+    <h2>Book Your Session</h2>
+    <div id="calendar-widget">
+        <!-- Interactive calendar placeholder -->
+    </div>
+</section>
+
+</body>
+</html>
+{% endblock %}

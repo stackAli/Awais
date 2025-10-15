@@ -1,0 +1,63 @@
+<h2>Manage Services</h2>
+<a href="{{ url_for('services.add_service') }}">+ Add New Service</a>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>ID</th><th>Title</th><th>Tier</th><th>Actions</th>
+  </tr>
+  {% for s in services %}
+  <tr>
+    <td>{{ s.id }}</td>
+    <td>{{ s.title }}</td>
+    <td>{{ s.tier }}</td>
+    <td>
+      <a href="{{ url_for('services.edit_service', id=s.id) }}">Edit</a> |
+      <a href="{{ url_for('services.delete_service', id=s.id) }}" onclick="return confirm('Delete?')">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+<h2>Manage Success Stories</h2>
+<a href="{{ url_for('casestudies.add_success_story') }}">+ Add Success Story</a>
+
+{% if case_studies %}
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Challenge</th>
+      <th>Solution</th>
+      <th>Results</th>
+      <th>Actions</th>
+    </tr>
+    {% for story in case_studies %}
+    <tr>
+      <td>{{ story.id }}</td>
+      <td>{{ story.title }}</td>
+      <td>{{ story.challenge[:40] }}...</td>
+      <td>{{ story.solution[:40] }}...</td>
+      <td>{{ story.results[:40] }}...</td>
+      <td>
+        <a href="{{ url_for('casestudies.edit_success_story', id=story.id) }}">Edit</a> |
+        <a href="{{ url_for('casestudies.delete_success_story', id=story.id) }}"
+           onclick="return confirm('Delete this story?')">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>No success stories yet.</p>
+{% endif %}
+
+<form method="POST" action="{{ url_for('services.update_contact') }}">
+  <label>Email:</label>
+  <input type="text" name="contact_email" required>
+  <br>
+  <label>Phone:</label>
+  <input type="text" name="contact_phone" required>
+  <br>
+  <label>Hours:</label>
+  <input type="text" name="contact_hours" required>
+  <br>
+  <button type="submit">Save</button>
+</form>

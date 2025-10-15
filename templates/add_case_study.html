@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add Success Story</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  <p>Title: <input type="text" name="title" required></p>
+  <p>Challenge:<br><textarea name="challenge" rows="4" cols="50" required></textarea></p>
+  <p>Solution:<br><textarea name="solution" rows="4" cols="50" required></textarea></p>
+  <p>Results:<br><textarea name="results" rows="4" cols="50" required></textarea></p>
+
+  <h3>Media</h3>
+  <p>Lottie URL: <input type="text" name="lottie_url"></p>
+  <p>OR Upload Image: <input type="file" name="image"></p>
+
+  <p>Button URL: <input type="text" name="button_url"></p>
+
+  <p><button type="submit">Save</button></p>
+</form>
+
+{% endblock %}
