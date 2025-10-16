@@ -91,7 +91,6 @@ a.btn-services:hover::before,
 
 
 
-<body>
 
 <!-- Hero Section -->
 <section class="hero-section">
@@ -198,211 +197,233 @@ a.btn-services:hover::before,
 </section>
 
 
+<div class="bac">
+    <section class="ai-section" id="aiSection">
+      <h2 class="ai-heading" style="color: rgb(249, 178, 45) !important;">Solution Architecture</h2>
 
-<section class="ai-section" id="aiSection">
-  <h2 class="ai-heading" style="color: rgb(249, 178, 45) !important;">Solution Architecture</h2>
+      <div class="ai-cards">
+        <div class="ai-card">
+          <div class="card-number">1</div>
+          <h3>AI Receptionist Foundation</h3>
+          <p>The Starting Point for Every Transformation</p>
+          <p><strong style="color: black;">Business Impact</strong> <br>40% more leads, 75% fewer missed opportunities, 300% ROI in 90 days <br>
+            <strong style="color: black;">Implementation</strong><br> 2–3 weeks</p>
+          <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+        </div>
 
-  <div class="ai-cards">
-    <div class="ai-card">
-      <div class="card-number">1</div>
-      <h3>AI Receptionist Foundation</h3>
-      <p>The Starting Point for Every Transformation</p>
-      <p><strong style="color: black;">Business Impact</strong> <br>40% more leads, 75% fewer missed opportunities, 300% ROI in 90 days <br>
-        <strong style="color: black;">Implementation</strong><br> 2–3 weeks</p>
-      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
-    </div>
+        <div class="ai-card">
+          <div class="card-number">2</div>
+          <h3>Outreach Automation Engine</h3>
+          <p>Amplify Your Reach, Multiply Your Results</p>
+          <p><strong style="color: black;">Business Impact</strong> <br>200% more follow-up consistency, 45% higher conversion <br>
+            <strong style="color: black;">Implementation</strong><br> 3–4 weeks</p>
+          <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+        </div>
 
-    <div class="ai-card">
-      <div class="card-number">2</div>
-      <h3>Outreach Automation Engine</h3>
-      <p>Amplify Your Reach, Multiply Your Results</p>
-      <p><strong style="color: black;">Business Impact</strong> <br>200% more follow-up consistency, 45% higher conversion <br>
-        <strong style="color: black;">Implementation</strong><br> 3–4 weeks</p>
-      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
-    </div>
+        <div class="ai-card">
+          <div class="card-number">3</div>
+          <h3>Intelligence Analytics Dashboard</h3>
+          <p>Data-Driven Growth Optimization</p>
+          <p><strong style="color: rgb(249, 178, 45);">Business Impact</strong> <br>35% faster decision-making, 25% profit margin increase<br>
+            <strong style="color: rgb(249, 178, 45);">Implementation</strong><br> 2–3 weeks</p>
+          <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+        </div>
 
-    <div class="ai-card">
-      <div class="card-number">3</div>
-      <h3>Intelligence Analytics Dashboard</h3>
-      <p>Data-Driven Growth Optimization</p>
-      <p><strong style="color: rgb(249, 178, 45);">Business Impact</strong> <br>35% faster decision-making, 25% profit margin increase<br>
-        <strong style="color: rgb(249, 178, 45);">Implementation</strong><br> 2–3 weeks</p>
-      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
-    </div>
+        <div class="ai-card">
+          <div class="card-number">4</div>
+          <h3>Advanced AI Transformation</h3>
+          <p>Enterprise-Level Business Automation</p>
+          <p style="color: white;">
+            <strong style="color: white !important; display: inline-block;">Business Impact</strong><br>
+            Complete transformation, unlimited scalability<br>
+            <strong style="color: white !important; display: inline-block;">Implementation</strong><br>
+            6–12 weeks
+          </p>
 
-    <div class="ai-card">
-      <div class="card-number">4</div>
-      <h3>Advanced AI Transformation</h3>
-      <p>Enterprise-Level Business Automation</p>
-      <p style="color: white;">
-        <strong style="color: white !important; display: inline-block;">Business Impact</strong><br>
-        Complete transformation, unlimited scalability<br>
-        <strong style="color: white !important; display: inline-block;">Implementation</strong><br>
-        6–12 weeks
-      </p>
+          <a href="/GrowthSystems" class="btn-learn">Learn More</a>
+        </div>
+      </div>
+    </section>
 
-      <a href="/GrowthSystems" class="btn-learn">Learn More</a>
-    </div>
-  </div>
-</section>
+    <style>
+    .ai-section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
 
-<style>
-.ai-section {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.ai-heading {
-  display: flex;
-  justify-content: center; /* centers horizontally */
-  align-items: center;     /* centers vertically */
-  text-align: center;      /* fallback for text alignment */
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 3rem;
-  color: #FFD70080 !important; /* Adjust to match your theme */
-  width: 100%;    /* ensure it spans full container */
-}
-
-
-.ai-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: -10px auto;
-}
-
-.ai-card {
-  background: #111;
-  color: white;
-  padding: 2rem;
-  border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s, transform 0.8s;
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.ai-card.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ai-card:nth-child(1).active { transition-delay: 0.1s; }
-.ai-card:nth-child(2).active { transition-delay: 0.2s; }
-.ai-card:nth-child(3).active { transition-delay: 0.3s; }
-.ai-card:nth-child(4).active { transition-delay: 0.4s; }
+    .ai-heading {
+      display: flex;
+      justify-content: center; /* centers horizontally */
+      align-items: center;     /* centers vertically */
+      text-align: center;      /* fallback for text alignment */
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      color: #FFD70080 !important; /* Adjust to match your theme */
+      width: 100%;    /* ensure it spans full container */
+    }
 
 
-/* Optional: make section responsive */
-@media (max-width: 768px) {
-  .ai-cards {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    .ai-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: -10px auto;
+    }
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const aiCards = document.querySelectorAll(".ai-card");
+    .ai-card {
+      background: #111;
+      color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.8s, transform 0.8s;
+      opacity: 0;
+      transform: translateY(40px);
+    }
 
-  function handleScroll() {
-    aiCards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.8) {
-        card.classList.add("active");
+    .ai-card.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ai-card:nth-child(1).active { transition-delay: 0.1s; }
+    .ai-card:nth-child(2).active { transition-delay: 0.2s; }
+    .ai-card:nth-child(3).active { transition-delay: 0.3s; }
+    .ai-card:nth-child(4).active { transition-delay: 0.4s; }
+
+
+    /* Optional: make section responsive */
+    @media (max-width: 768px) {
+      .ai-cards {
+        grid-template-columns: 1fr;
       }
+    }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const aiCards = document.querySelectorAll(".ai-card");
+
+      function handleScroll() {
+        aiCards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.8) {
+            card.classList.add("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // Trigger on page load in case already visible
     });
-  }
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // Trigger on page load in case already visible
-});
-</script>
+    </script>
 
 
-<section class="social-proof">
-  <div class="container">
-    <h2>Real Businesses. Real Transformations. Real Results.</h2>
-    <p class="subtitle">See How METAMAX AI Growth Systems Have Transformed Businesses Across Industries</p>
+    <section class="social-proof">
+      <div class="container">
+        <h2>Real Businesses. Real Transformations. Real Results.</h2>
+        <p class="subtitle">See How METAMAX AI Growth Systems Have Transformed Businesses Across Industries</p>
 
-    <!-- Case Study 1 -->
-    <div class="case-row">
-      <div class="case-animation" >
-        <dotlottie-wc src="https://lottie.host/faca4eb1-a269-4733-bbfd-c7dbb22e0c40/edllglNYYf.lottie"  autoplay loop></dotlottie-wc>
-      </div>
-      <div class="case-content">
-        <h3>Melbourne Family Clinic</h3>
+        <!-- Case Study 1 -->
+        <div class="case-row">
+          <div class="case-animation" >
+            <dotlottie-wc src="https://lottie.host/faca4eb1-a269-4733-bbfd-c7dbb22e0c40/edllglNYYf.lottie"  autoplay loop></dotlottie-wc>
+          </div>
+          <div class="case-content">
+            <h3>Melbourne Family Clinic</h3>
+            
+            <ul>
+              <li><strong>Before:</strong> Missed 60% after-hours requests</li>
+              <li><strong>Solution:</strong> AI receptionist + reminders</li>
+              <li><strong>Results:</strong> 300% bookings, +$200K revenue</li>
+            </ul>
+            <blockquote>“METAMAX gave us our lives back.”</blockquote>
+            <p class="author">– Dr. Sarah Mitchell</p>
+            <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Case Study 2 -->
+        <div class="case-row reverse">
+          <div class="case-animation">
+            <dotlottie-wc src="https://lottie.host/54a937ee-afb9-4a37-b15a-21a3419ca85b/HGAjnGaO40.lottie" autoplay loop></dotlottie-wc>
+          </div>
+          <div class="case-content">
+            <h3>Richardson Legal</h3>
         
-        <ul>
-          <li><strong>Before:</strong> Missed 60% after-hours requests</li>
-          <li><strong>Solution:</strong> AI receptionist + reminders</li>
-          <li><strong>Results:</strong> 300% bookings, +$200K revenue</li>
-        </ul>
-        <blockquote>“METAMAX gave us our lives back.”</blockquote>
-        <p class="author">– Dr. Sarah Mitchell</p>
-        <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
-      </div>
-    </div>
+            <ul>
+              <li><strong>Challenge:</strong> Lost high-value leads after hours</li>
+              <li><strong>Solution:</strong> AI legal intake</li>
+              <li><strong>Results:</strong> $150K quarterly revenue boost</li>
+            </ul>
+            <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
+          </div>
+        </div>
 
-    <!-- Case Study 2 -->
-    <div class="case-row reverse">
-      <div class="case-animation">
-        <dotlottie-wc src="https://lottie.host/54a937ee-afb9-4a37-b15a-21a3419ca85b/HGAjnGaO40.lottie" autoplay loop></dotlottie-wc>
-      </div>
-      <div class="case-content">
-        <h3>Richardson Legal</h3>
-    
-        <ul>
-          <li><strong>Challenge:</strong> Lost high-value leads after hours</li>
-          <li><strong>Solution:</strong> AI legal intake</li>
-          <li><strong>Results:</strong> $150K quarterly revenue boost</li>
-        </ul>
-        <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
-      </div>
-    </div>
+        <!-- Case Study 3 -->
+        <div class="case-row">
+          <div class="case-animation">
+            <dotlottie-wc src="https://lottie.host/b1ec42aa-feae-43b6-95a4-0ac696ea2ddb/fM8KpJzEOb.lottie" autoplay loop></dotlottie-wc>
+          </div>
+          <div class="case-content">
+            <h3>Elite Plumbing Services</h3>
+          
+            <ul>
+              <li><strong>Challenge:</strong> Missed emergencies, seasonal dips</li>
+              <li><strong>Solution:</strong> 24/7 AI dispatcher</li>
+              <li><strong>Results:</strong> 200% emergency bookings</li>
+            </ul>
+            <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
+          </div>
+        </div>
 
-    <!-- Case Study 3 -->
-    <div class="case-row">
-      <div class="case-animation">
-        <dotlottie-wc src="https://lottie.host/b1ec42aa-feae-43b6-95a4-0ac696ea2ddb/fM8KpJzEOb.lottie" autoplay loop></dotlottie-wc>
+        <!-- Case Study 4 -->
+        <div class="case-row reverse">
+          <div class="case-animation">
+            <dotlottie-wc src="https://lottie.host/0f2659ab-6c7d-47b6-b81a-d79717bd4402/1yGxkevC5G.lottie" autoplay loop></dotlottie-wc>
+          </div>
+          <div class="case-content">
+            <h3>Prestige Properties</h3>
+            
+            <ul>
+              <li><strong>Challenge:</strong> Inquiries lost to competitors</li>
+              <li><strong>Solution:</strong> AI property scheduler</li>
+              <li><strong>Results:</strong> +40% property viewings</li>
+            </ul>
+            <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
+          </div>
+        </div>
       </div>
-      <div class="case-content">
-        <h3>Elite Plumbing Services</h3>
-       
-        <ul>
-          <li><strong>Challenge:</strong> Missed emergencies, seasonal dips</li>
-          <li><strong>Solution:</strong> 24/7 AI dispatcher</li>
-          <li><strong>Results:</strong> 200% emergency bookings</li>
-        </ul>
-        <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
-      </div>
-    </div>
+    </section>
 
-    <!-- Case Study 4 -->
-    <div class="case-row reverse">
-      <div class="case-animation">
-        <dotlottie-wc src="https://lottie.host/0f2659ab-6c7d-47b6-b81a-d79717bd4402/1yGxkevC5G.lottie" autoplay loop></dotlottie-wc>
-      </div>
-      <div class="case-content">
-        <h3>Prestige Properties</h3>
-        
-        <ul>
-          <li><strong>Challenge:</strong> Inquiries lost to competitors</li>
-          <li><strong>Solution:</strong> AI property scheduler</li>
-          <li><strong>Results:</strong> +40% property viewings</li>
-        </ul>
-        <a href="/success-stories" class="btn-learn" style="background-color: rgb(249, 178, 45); color: black; padding: 0.5rem 2rem;">Learn More</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+</div>
 
 <!-- Scripts -->
+<style>
+   .bac {
+  /* A smooth vertical gradient background */
+  background: linear-gradient(to bottom, white, #1d1c1c);
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
 
+/* Make sure both sections are transparent to show the gradient behind them */
+.ai-section,
+.social-proof {
+  background: transparent;
+}
+
+/* (Optional) add some spacing so both sections don't overlap visually */
+.social-proof {
+  padding: 4rem 2rem;
+  color: white;
+}
+</style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -516,6 +537,6 @@ counters.forEach(counter => {
 
 
 
-</body>
+
 
 {% endblock %}

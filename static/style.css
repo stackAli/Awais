@@ -387,9 +387,13 @@ body {
   }
 }
 
+ 
+
+
 /* AI Section / Transformation Timeline */
 .ai-section {
-    background: rgba(245, 241, 241);
+    
+
     padding: 8rem 2rem;
     font-family: 'Montserrat', sans-serif;
     color: rgb(249, 178, 45) !important; /* gold text for headings and highlights */
