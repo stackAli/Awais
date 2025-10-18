@@ -335,7 +335,9 @@ h1, h2, h3 {
     left: 8px; /* move divider to side */
     width: 2px;
   }
-
+  .service-grid h3{
+    margin-top: 25px;
+  }
   .service-card {
     max-width: 100%;
     margin: 2rem 0;
@@ -362,7 +364,9 @@ h1, h2, h3 {
   .hero h1 {
     font-size: 2rem;
   }
-
+  .service-grid h3{
+    margin-top: 25px;
+  }
   .hero p {
     font-size: 1rem;
   }
@@ -413,7 +417,9 @@ h1, h2, h3 {
   .hero p {
     font-size: 0.9rem;
   }
-
+  .service-grid h3{
+    margin-top: 25px;
+  }
   .service-card {
     padding: 1rem;
   }

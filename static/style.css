@@ -601,26 +601,20 @@ body {
 
 .case-animation {
   flex: 0 0 300px;
-  background: black;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease;
+  background: transparent;
+  
 }
 
 .case-animation:hover {
   transform: scale(1.05);
 }
 
+
 .case-animation dotlottie-wc {
   width: 200px;
   height: 200px;
   pointer-events: none;
 }
-
 .case-content {
   flex: 1;
   max-width: 600px;
@@ -642,7 +636,7 @@ body {
 
 .case-content ul li {
   font-size: 1rem;
-  color: #060101;
+  color: white;
   margin-bottom: 12px;
   position: relative;
   padding-left: 20px;
