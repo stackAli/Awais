@@ -134,7 +134,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%) translateY(30px);
   text-align: center;
-  color: rgb(249, 178, 45);
+  color: rgb(244, 240, 158);
   opacity: 0;
   z-index: 3;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -578,7 +578,7 @@ body {
 
 .social-proof .subtitle {
   font-size: 1.1rem;
-  color: white;
+  color: #080707;
   margin-bottom: 70px;
 }
 
@@ -601,8 +601,14 @@ body {
 
 .case-animation {
   flex: 0 0 300px;
-  background: transparent;
- 
+  background: black;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease;
 }
 
 .case-animation:hover {
@@ -610,8 +616,8 @@ body {
 }
 
 .case-animation dotlottie-wc {
-  width: 350px;
-  height: 350px;
+  width: 200px;
+  height: 200px;
   pointer-events: none;
 }
 
@@ -636,7 +642,7 @@ body {
 
 .case-content ul li {
   font-size: 1rem;
-  color: white;
+  color: #060101;
   margin-bottom: 12px;
   position: relative;
   padding-left: 20px;
