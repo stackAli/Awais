@@ -6,18 +6,110 @@
 
 <style>
 
-  .hero {
-      position: relative;
-      height: 60vh;
-      width: 100%;
-      overflow: visible;
-      background: linear-gradient(to right, #100f0f, #686767);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+.hero {
+  position: relative;
+  min-height: 60vh;
+  width: 100%;
+  background: linear-gradient(to right, #100f0f, #686767);
+  display: flex;
+  align-items: center;        /* vertically centers */
+  justify-content: center;    /* horizontally centers */
+  text-align: center;         /* centers text lines */
+  padding: 3rem 1rem;
+  overflow: hidden;
 }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero h1 {
+  color: rgb(249, 178, 45);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #fbfbf9;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  margin: 0 auto;
+}
+
+
 .a{
   color: rgb(249, 178, 45);
+}
+
+/* Tablet (≤992px) */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 50vh;
+    padding: 2rem 1rem;
+  }
+  .lottie-container dotlottie-wc {
+    max-width: 360px;
+  }
+  .viz-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+  .hero h1 {
+    font-size: 1.4rem;
+    align-items: center;
+   
+  }
+  .hero p {
+    align-items: center;
+   
+  }
+  .row.align-items-center {
+    flex-direction: column !important;
+    text-align: left;
+  }
+  .row.align-items-center.flex-md-row-reverse {
+    flex-direction: column !important;
+  }
+  .row.align-items-center .col-md-6 {
+    margin-bottom: 1.5rem;
+  }
+  .lottie-container dotlottie-wc {
+    max-width: 280px;
+  }
+  .counter {
+    font-size: 1.4rem;
+  }
+}
+
+/* Extra Small (≤480px) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero p {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .btn-golden {
+    width: 100%;
+    padding: 0.8rem;
+  }
+  .counter {
+    font-size: 1.2rem;
+  }
 }
 </style>
 
@@ -28,7 +120,7 @@
 
   <div class="hero-content" style="position: relative; z-index: 2;">
     <h1 style="color: rgb(249, 178, 45);">Real Businesses. Real Transformations. Real Results.</h1>
-    <p style="color: #fbfbf9; margin-left: 16%;" >See how METAMAX AI Growth Systems have transformed businesses across industries</p>
+    <p style="color: #fbfbf9;" >See how METAMAX AI Growth Systems have transformed businesses across industries</p>
   </div>
 </section>
 

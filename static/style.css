@@ -578,7 +578,7 @@ body {
 
 .social-proof .subtitle {
   font-size: 1.1rem;
-  color: #080707;
+  color: white;
   margin-bottom: 70px;
 }
 
@@ -601,14 +601,8 @@ body {
 
 .case-animation {
   flex: 0 0 300px;
-  background: black;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  transition: transform 0.4s ease;
+  background: transparent;
+ 
 }
 
 .case-animation:hover {
@@ -616,8 +610,8 @@ body {
 }
 
 .case-animation dotlottie-wc {
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  height: 350px;
   pointer-events: none;
 }
 
@@ -642,7 +636,7 @@ body {
 
 .case-content ul li {
   font-size: 1rem;
-  color: #060101;
+  color: white;
   margin-bottom: 12px;
   position: relative;
   padding-left: 20px;
